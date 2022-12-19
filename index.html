@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="shortcut icon" href="favicon.jpg" type="image/png" />
     <title>Morten Myrstad</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,17 +17,19 @@
     />
   </head>
   <body>
-    <section class="hero">
+    <section class="hero" id="intro">
       <div class="navigation">
-        <nav>
-          <div class="logo"><a href="/">myrstad</a></div>
-          <ul>
-            <li><a href="#" class="active">Hjem</a></li>
-            <li><a href="#">Link1</a></li>
-            <li><a href="#">Link2</a></li>
-            <li><a href="#">Link3</a></li>
-          </ul>
-        </nav>
+        <div class="container">
+          <nav>
+            <div class="logo"><a href="/">myrstad</a></div>
+            <ul>
+              <li><a href="#intro" class="active">intro</a></li>
+              <li><a href="#prosjektene-mine">prosjektene mine</a></li>
+              <li><a href="#om-meg">litt om meg</a></li>
+              <li><a href="#">kontakt meg</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
       <div class="hero-container">
         <div class="info">
@@ -270,5 +273,47 @@
         </div>
       </div>
     </section>
+    <section class="projects" id="prosjektene-mine">
+      <h2>Prosjekter</h2>
+      <p>
+        Prosjektene jeg vil vise frem per dags dato. Lorem ipsum doler amer
+        soret doret simet al. Jeg kan ikke latin men prøvde meg på lorem ipsum.
+      </p>
+      <div class="cards">
+        <div class="card">
+          <div class="card--header">
+            <img src="./favicon.jpg" alt="" class="icon" />
+            <h3>Card #1</h3>
+          </div>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem
+            veniam at repudiandae odio sequi enim incidunt harum dolorem
+            perspiciatis obcaecati qui voluptatem adipisci, rerum mollitia et
+            fugiat eligendi tempore modi.
+          </p>
+          <div class="buttons">
+            <a href="" class="button-solid">GitHub</a>
+            <a href="" class="button-outline">Live demo</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card--header">
+            <img src="./favicon.jpg" alt="" class="icon" />
+            <h3>Card #2</h3>
+          </div>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit
+            optio laudantium quae consectetur, cum qui obcaecati necessitatibus
+            explicabo illo quia itaque. Magnam, quia consectetur laboriosam est
+            ut quisquam dolore maiores!
+          </p>
+          <div class="buttons">
+            <a href="" class="button-solid">GitHub</a>
+            <a href="" class="button-outline">Live demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about-me" id="om-meg"></section>
   </body>
 </html>
