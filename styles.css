@@ -98,6 +98,10 @@ nav {
   margin-bottom: 2.25rem;
 }
 
+nav .logo {
+  padding: 0.625rem 0;
+}
+
 nav .logo a {
   text-decoration: none;
   color: var(--tertiary-color);
@@ -208,6 +212,8 @@ nav button {
 
 .hero-container .image {
   width: 50%;
+  display: grid;
+  place-items: center;
 }
 
 .hero-container .buttons {
