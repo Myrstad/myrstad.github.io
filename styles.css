@@ -59,12 +59,18 @@ section {
   padding: 0 1rem;
 }
 
+/*
+ * ----- Hero Section ----- *
+ */
+
+/* ----- Navbar ----- */
+
 .navigation {
   width: 100%;
 }
 
 .hero.scrolled {
-  padding-top: 10rem;
+  padding-top: 8.75rem;
 }
 
 .hero.scrolled .navigation {
@@ -76,16 +82,20 @@ section {
 }
 
 .hero.scrolled nav {
-  height: 6rem;
+  padding-block: 1.25rem;
+  margin: 0;
 }
 
 nav {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 10rem;
   max-width: 83rem;
   margin: 0 auto;
+  padding-top: 3.25rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2.25rem;
 }
 
 nav .logo a {
@@ -112,6 +122,63 @@ nav li a.active {
   color: var(--light-color);
   font-weight: 500;
 }
+
+nav button {
+  all: unset;
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  nav ul {
+    display: none;
+  }
+
+  nav button {
+    display: block;
+    padding: 0.25rem;
+    height: 3rem;
+    aspect-ratio: 1/1;
+  }
+
+  nav button:is(:focus) {
+    outline: 2px solid var(--light-color);
+  }
+
+  nav button:is(:active) {
+    background-color: var(--dark-color);
+  }
+
+  nav svg path {
+    transition: d 200ms ease-out;
+  }
+
+  nav button.active path.line-1 {
+    d: path('M 10 10 L 38 38');
+  }
+
+  nav button.active path.line-2 {
+    d: path('M 10 38 L 38 10');
+  }
+
+  nav button.active + ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100vw;
+    background-color: var(--background);
+    top: 100%;
+    left: -1rem;
+    padding-block: 2rem;
+    border-bottom: 2px solid var(--dark-color);
+  }
+
+  .hero.scrolled nav button.active + ul {
+    box-shadow: 0 8px 16px var(--dark-color);
+    border-bottom: none;
+  }
+}
+
+/* ----- Hero Information ----- */
 
 .hero-container {
   margin: 0 1rem;
@@ -168,6 +235,10 @@ nav li a.active {
   color: var(--tertiary-color);
   border: solid var(--tertiary-color) 0.25rem;
 }
+
+/*
+ * ----- Projects Section ----- *
+ */
 
 .projects {
   background-color: var(--secondary-color);
