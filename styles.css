@@ -32,6 +32,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 img,
@@ -366,7 +367,8 @@ nav button {
  */
 
 .about {
-  background-color: var(--tertiary-color);
+  background-color: var(--main-color);
+  min-height: 100vh;
 }
 
 /*
@@ -374,5 +376,6 @@ nav button {
  */
 
 .contact {
-  background-color: var(--main-color);
+  background-color: var(--tertiary-color);
+  min-height: 100vh;
 }

@@ -15,10 +15,11 @@ navigationToggle.addEventListener('click', (e) => {
 const hero = document.querySelector('#intro');
 const projects = document.querySelector('#prosjektene-mine');
 const about = document.querySelector('#om-meg');
-const sections = [hero, projects, about];
+const contact = document.querySelector('#kontakt-meg');
+const sections = [hero, projects, about, contact];
 const navbarLinks = document.querySelectorAll('nav ul li a');
 const navbarHeight = 96;
-console.log(sections, navbarLinks);
+
 window.addEventListener('scroll', (e) => {
   const scroll = window.scrollY + navbarHeight;
   sections.forEach((element, index) => {
@@ -29,10 +30,4 @@ window.addEventListener('scroll', (e) => {
       navbarLinks[index].classList.add('active');
     }
   });
-  console.log(
-    hero.offsetTop,
-    projects.offsetTop,
-    about.offsetTop,
-    window.scrollY + navbarHeight
-  );
 });
