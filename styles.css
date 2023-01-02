@@ -360,3 +360,19 @@ nav button {
     grid-template-columns: 1fr;
   }
 }
+
+/*
+ * ----- About Section ----- *
+ */
+
+.about {
+  background-color: var(--tertiary-color);
+}
+
+/*
+ * ----- Contact Section ----- *
+ */
+
+.contact {
+  background-color: var(--main-color);
+}
