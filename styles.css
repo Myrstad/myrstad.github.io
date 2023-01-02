@@ -70,7 +70,7 @@ section {
 }
 
 .hero.scrolled {
-  padding-top: 8.75rem;
+  padding-top: 10rem;
 }
 
 .hero.scrolled .navigation {
@@ -83,7 +83,7 @@ section {
 
 .hero.scrolled nav {
   padding-block: 1.25rem;
-  margin: 0;
+  margin: 0 auto;
 }
 
 nav {
