@@ -141,7 +141,7 @@ nav button {
   nav button {
     display: block;
     padding: 0.25rem;
-    height: 3rem;
+    height: 2.25rem;
     aspect-ratio: 1/1;
   }
 
@@ -151,6 +151,10 @@ nav button {
 
   nav button:is(:active) {
     background-color: var(--dark-color);
+  }
+
+  nav button:is(:hover, :active, :focus) svg path {
+    stroke: var(--light-color);
   }
 
   nav svg path {
@@ -186,7 +190,8 @@ nav button {
 /* ----- Hero Information ----- */
 
 .hero-container {
-  margin: 0 1rem;
+  padding: 0 1rem;
+  width: 100%;
   max-width: 83rem;
   display: flex;
   gap: 1rem;
