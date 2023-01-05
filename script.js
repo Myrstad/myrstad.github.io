@@ -34,6 +34,8 @@ const navbarLinks = document.querySelectorAll('nav ul li a');
 const navbarHeight = 96;
 
 window.addEventListener('scroll', (e) => {
+  //remove mobile drowdown on scroll
+  //not sure if i like this feature, may remove
   navigationToggle.classList.remove('active');
   const scroll = window.scrollY + navbarHeight + 8;
   sections.forEach((element, index) => {
