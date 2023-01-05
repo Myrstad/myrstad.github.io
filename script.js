@@ -34,6 +34,7 @@ const navbarLinks = document.querySelectorAll('nav ul li a');
 const navbarHeight = 96;
 
 window.addEventListener('scroll', (e) => {
+  navigationToggle.classList.remove('active');
   const scroll = window.scrollY + navbarHeight + 8;
   sections.forEach((element, index) => {
     if (element.offsetTop <= scroll) {
