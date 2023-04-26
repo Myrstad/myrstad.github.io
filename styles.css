@@ -237,11 +237,23 @@ nav button {
 .hero-container .buttons .primary {
   background-color: var(--tertiary-color);
   color: var(--main-color);
+  transition: 200ms ease-out background-color;
+}
+
+.hero-container .buttons .primary:is(:active, :focus, :hover) {
+  background-color: hsl(351, 60%, 90%);
 }
 
 .hero-container .buttons .outline {
   color: var(--tertiary-color);
   border: solid var(--tertiary-color) 0.25rem;
+  transition: background-color 200ms ease-out, color 200ms ease-out;
+}
+
+.hero-container .buttons .outline:is(:active, :focus, :hover) {
+  background-color: var(--secondary-color);
+  color: var(--main-color);
+  border-color: var(--secondary-color);
 }
 
 @media screen and (max-width: 1080px) {
