@@ -28,6 +28,8 @@ body {
   color: var(--paragraph);
   min-height: 100vh;
   line-height: 1.8;
+
+  overflow-x: hidden;
 }
 
 html {
@@ -68,6 +70,7 @@ section {
 
 .navigation {
   width: 100%;
+  z-index: 10;
 }
 
 .hero.scrolled {
@@ -327,6 +330,7 @@ nav button {
 }
 
 .projects .card--header img {
+  all: unset;
   width: 70px;
   aspect-ratio: 1/1;
   margin-right: 1rem;
@@ -400,6 +404,123 @@ nav button {
   gap: 1rem;
 }
 
+.about .w-4 {
+  max-width: 432px;
+}
+
+.about .language-cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+.language-cards .card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1rem;
+}
+
+.language-cards .icon {
+  display: grid;
+  position: relative;
+  place-items: center;
+  aspect-ratio: 1/1;
+  background-color: var(--dark-color);
+  border-radius: 2rem;
+  padding: 1rem;
+}
+
+.language-cards .img {
+  position: absolute;
+  opacity: 1;
+  transform: translateY(0);
+  user-select: none;
+  transition: opacity 500ms;
+}
+
+.language-cards .hidden {
+  position: absolute;
+  padding: 1rem;
+  color: transparent;
+  font-size: 14px;
+  transform: translateY(16px);
+  transition: color 250ms, transform 250ms;
+  user-select: none;
+}
+
+.language-cards .icon + p {
+  font-weight: 500;
+  text-align: center;
+  transition: color 250ms;
+}
+
+.language-cards .card:hover .hidden {
+  transform: translateY(0);
+  color: var(--secondary-color);
+  user-select: auto;
+}
+.language-cards .card:hover .img {
+  opacity: 0;
+}
+
+.language-cards .card:hover .icon + p {
+  color: var(--light-color);
+}
+
+@media screen and (max-width: 1080px) {
+  .about .language-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about .language-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.two-column {
+  display: flex;
+  gap: 1rem;
+  margin-top: 4rem;
+}
+
+.two-column .image:hover img {
+  transform: scale(1.1);
+}
+
+.two-column .column {
+  flex: 1;
+}
+
+.two-column .text {
+  max-width: 432px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.two-column h4 {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+}
+
+.two-column .image {
+  background-color: #121629;
+  border: 8px solid var(--tertiary-color);
+  border-radius: 2rem;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.two-column img {
+  transition: transform 500ms;
+  width: 100%;
+  height: 100%;
+}
+
 .about h2 {
   font-size: 3rem;
 }
@@ -410,6 +531,17 @@ nav button {
 
 .about small {
   margin-top: -0.5rem;
+}
+
+@media screen and (max-width: 800px) {
+  .two-column {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .two-column .image {
+    max-width: 432px;
+  }
 }
 
 /*
