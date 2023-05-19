@@ -502,7 +502,7 @@ nav button {
   gap: 1.5rem;
 }
 
-.two-column h4 {
+.two-column h3 {
   font-size: 1.25rem;
   margin-top: 2rem;
 }
@@ -519,14 +519,11 @@ nav button {
   transition: transform 500ms;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .about h2 {
   font-size: 3rem;
-}
-
-.about h3 {
-  margin-top: 1rem;
 }
 
 .about small {
