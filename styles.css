@@ -645,7 +645,7 @@ nav button {
 }
 
 .row-floating-label input {
-  min-height: 4rem;
+  height: 4rem;
 }
 
 /*
