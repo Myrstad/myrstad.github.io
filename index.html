@@ -526,13 +526,30 @@
     <section class="contact" id="kontakt-meg">
       <div class="contact-container">
         <h2>Ta kontakt</h2>
+        <form class="contact-form">
+          <div class="row-floating-label">
+            <input type="text" id="navn" required />
+            <label for="navn">Navn</label>
+          </div>
+          <!-- <div class="row-floating-label">
+            <input type="email" id="e-post" required />
+            <label for="e-post">E-Post</label>
+          </div> -->
+          <div class="row-floating-label">
+            <input type="text" id="emne" required />
+            <label for="emne">Emne</label>
+          </div>
+          <div class="row-floating-label text-area">
+            <!-- <input type="text" id="melding" required /> -->
+            <textarea name="melding" id="melding" required></textarea>
+            <label for="melding">Melding</label>
+          </div>
+          <button type="submit">Send</button>
+        </form>
         <p>
           Send meg gjerne en e-post på
-          <a href="mailto:mortemyrstad@gmail.com">mortemyrstad@gmail.com</a>
-        </p>
-        <p>
-          Så finner jeg nok en finere løsning på denne delen av nettsiden
-          seinere ;D
+          <a href="mailto:post@mortemyrstad.no">post@mortemyrstad.no</a>
+          om det er enklere
         </p>
       </div>
     </section>

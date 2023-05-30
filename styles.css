@@ -477,6 +477,10 @@ nav button {
 }
 
 @media screen and (max-width: 600px) {
+  .about-container {
+    max-width: min(100%, 100vw);
+  }
+
   .about .language-cards {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -568,6 +572,77 @@ nav button {
   font-size: 3rem;
 }
 
+.contact-form {
+  margin-top: 4rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  max-width: 656px;
+}
+
+.row-floating-label {
+  width: 100%;
+  position: relative;
+  min-height: 4rem;
+}
+
+.row-floating-label label {
+  position: absolute;
+  left: 2rem;
+  top: 0;
+  line-height: 4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: top 250ms, font-size 250ms, line-height 250ms, padding 250ms;
+  padding: 0 0;
+}
+
+.row-floating-label input:valid + label,
+.row-floating-label input:focus + label,
+.row-floating-label textarea:valid + label,
+.row-floating-label textarea:focus + label {
+  font-size: 1.5rem;
+  line-height: 1rem;
+  border-radius: 100vmin;
+  top: -1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--main-color);
+  color: var(--light-color);
+}
+
+.row-floating-label input,
+.row-floating-label textarea {
+  width: 100%;
+  height: 100%;
+  padding-left: 2rem;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  border: none;
+}
+
+.contact-form button {
+  border: none;
+  height: 4rem;
+  max-width: fit-content;
+  padding: 0 3rem;
+  line-height: 4rem;
+  background-color: var(--main-color);
+  color: var(--light-color);
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.contact-form button:hover,
+.contact-form button:focus {
+  background-color: var(--dark-color);
+}
+
+.row-floating-label textarea {
+  min-height: 12rem;
+  resize: vertical;
+  padding-top: 1rem;
+}
 /*
  * ----- Footer ----- *
  */

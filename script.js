@@ -47,3 +47,27 @@ window.addEventListener('scroll', (e) => {
     }
   });
 });
+
+//contact form
+const contactformEl = document.querySelector('.contact-form');
+
+contactformEl.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const navn = contactformEl.querySelector('#navn').value;
+  const emne = contactformEl.querySelector('#emne').value;
+  const melding = contactformEl.querySelector('#melding').value;
+
+  let link = 'mailto:post@mortenmyrstad.no?';
+  let subject = emne + ' | ' + navn;
+  let body = melding;
+  body = body.replaceAll(' ', '%20');
+  body = body.replaceAll('\n', '%0D%0A');
+  console.log(body);
+  link += 'body=' + body + '&';
+  link += 'subject=' + subject;
+  location.href = link;
+  a = document.createElement('a');
+  a.href = link;
+  a.click();
+  document.removeChild(a);
+});
