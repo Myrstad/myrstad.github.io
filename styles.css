@@ -643,6 +643,11 @@ nav button {
   resize: vertical;
   padding-top: 1rem;
 }
+
+.row-floating-label input {
+  min-height: 4rem;
+}
+
 /*
  * ----- Footer ----- *
  */
