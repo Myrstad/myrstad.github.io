@@ -521,6 +521,10 @@ nav button {
   overflow: hidden;
 }
 
+.two-column .image img {
+  overflow: clip;
+}
+
 .two-column img {
   transition: transform 500ms;
   width: 100%;
