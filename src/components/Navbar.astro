@@ -1,0 +1,89 @@
+---
+
+---
+
+<div class="background">
+  <div class="container">
+    <div class="content">
+      <div class="logo">
+        <div class="block"></div>
+        myrstad
+      </div>
+      <button data-cursor-big="true">
+        <div class="hamburger"></div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .background {
+    background-color: rgb(255 255 255 / 0.5);
+    backdrop-filter: blur(8px);
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .content {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--clr-dark);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    line-height: 100%;
+    font-weight: 500;
+  }
+  .logo .block {
+    background-color: black;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  button {
+    all: unset;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 2rem;
+    background-color: transparent;
+    transition: background 200ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+  .hamburger {
+    position: relative;
+    z-index: 100;
+    transform: translate(-0.25rem);
+    width: 1.5rem;
+    height: 2px;
+    background-color: black;
+    border-radius: 1px;
+  }
+
+  .hamburger::before {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 2px;
+    border-radius: 1px;
+    background-color: black;
+    transform: translateY(-6px);
+  }
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 2px;
+    border-radius: 1px;
+    background-color: black;
+    transform: translateY(6px);
+  }
+</style>

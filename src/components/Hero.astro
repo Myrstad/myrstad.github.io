@@ -1,0 +1,98 @@
+---
+
+---
+
+<div class="container">
+  <img src="/images/winter-wonderland.jpg" alt="">
+  <div class="content">
+    <div class="column">
+      <p class="eyebrow">webutvikler & student</p>
+      <h1>Morten<br>Myrstad</h1>
+    </div>
+    <div class="column">
+      <p class="text">
+        Hei! Jeg er en person med en brennende interesse for alt teknologisk, fra operativsystemer til mikrokontrollere. Jeg brenner for godt design og brukervennlighet. Med en intens indre motivasjon for læring og nye erfaringer, er jeg alltid på jakt etter å utvide mine kunnskaper.
+      </p>
+      <div class="buttons">
+        <a href="#" class="button primary" data-cursor-invert="true">Ta kontakt</a>
+        <a href="#" class="button secondary" data-cursor-invert="true">Se prosjekter</a>
+      </div>
+    </div>
+    <div class="column">
+      <img src="/images/winter-lake.jpg" alt="">
+  </div>
+</div>
+
+<style>
+  .container > img {
+    height: 28rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: var(--br-lg);
+  }
+
+  .content {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .eyebrow {
+    width: fit-content;
+    padding: 0.5rem 1.25rem;
+    border-radius: 1rem;
+    line-height: 100%;
+    margin: 0;
+    color: var(--clr-light);
+    background-color: var(--clr-dark);
+    text-transform: uppercase;
+  }
+  h1 {
+    margin: 0;
+    margin-top: 1.5rem;
+    font-size: 6rem;
+    line-height: 100%;
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+  .text {
+    margin: 0;
+    line-height: 150%;
+    font-size: 1.25rem;
+  }
+  .buttons {
+    display: flex;
+    gap: 1.25rem;
+  }
+  .button {
+    margin-top: 2rem;
+    font-size: 1.25rem;
+    line-height: 100%;
+    padding: 1em 2em;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 100vmax;
+  }
+  .button.primary {
+    background-color: black;
+    color: white;
+  }
+  .button.secondary {
+    color: black;
+    outline: 2px solid black;
+    outline-offset: -2px;
+  }
+  .column img {
+    max-height: 350px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: .75rem 2rem .75rem 2rem;
+  }
+</style>
