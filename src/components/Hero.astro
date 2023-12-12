@@ -14,8 +14,8 @@
         Hei! Jeg er en person med en brennende interesse for alt teknologisk, fra operativsystemer til mikrokontrollere. Jeg brenner for godt design og brukervennlighet. Med en intens indre motivasjon for læring og nye erfaringer, er jeg alltid på jakt etter å utvide mine kunnskaper.
       </p>
       <div class="buttons">
-        <a href="#" class="button primary" data-cursor-invert="true">Ta kontakt</a>
-        <a href="#" class="button secondary" data-cursor-invert="true">Se prosjekter</a>
+        <a href="#" class="button primary" data-cursor-invert="" data-cursor-big="">Ta kontakt</a>
+        <a href="#prosjekter" class="button secondary" data-cursor-invert="" data-cursor-big="">Se prosjekter</a>
       </div>
     </div>
     <div class="column">
@@ -70,9 +70,9 @@
   .buttons {
     display: flex;
     gap: 1.25rem;
+    margin-top: 2rem;
   }
   .button {
-    margin-top: 2rem;
     font-size: 1.25rem;
     line-height: 100%;
     padding: 1em 2em;
@@ -94,5 +94,56 @@
     width: 100%;
     object-fit: cover;
     border-radius: .75rem 2rem .75rem 2rem;
+  }
+
+  @media screen and (max-width: 1500px) {
+    .content {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .content .column:nth-child(3) {
+      display: none;
+    }
+
+    .container > img {
+      max-height: 16rem;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .content {
+      grid-template-columns: 1fr;
+    }
+    
+    h1 {
+      font-size: 4rem;
+    }
+    
+    .text {
+      font-size: 1rem;
+      max-width: 50ch;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .content {
+      margin-top: 2rem;
+    }
+    .container > img {
+      max-height: 12rem;
+      border-radius: var(--br-md);
+    }
+
+    .buttons {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .button {
+      display: grid;
+      place-items: center;
+      padding-block: 0.5em;
+    }
   }
 </style>

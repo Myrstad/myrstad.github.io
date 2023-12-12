@@ -43,6 +43,8 @@ const { title } = Astro.props;
 		--clr-dark: #000;
 		--clr-light: #fff;
 		--clr-primary-light: #E5ECF5;
+
+		--side-padding: 3rem;
 	}
 
 	*, *::before, *::after {
@@ -50,20 +52,44 @@ const { title } = Astro.props;
 		font-family: 'Inter', sans-serif;
 	}
 
+	html {
+		scroll-behavior: smooth;
+		scroll-padding-top: 4rem;
+	}
+	
 	body {
 		background-color: var(--clr-light);
 		margin: 0;
 		min-height: 200vh;
 		font-size: 1rem;
 		padding-top: 4rem;
+		overflow-x: hidden;
 	}
+	.no-scroll {
+		overflow-y: hidden;
+	}
+
 	.container {
-		max-width: var(--max-width);
+		width: 100%;
+		max-width: calc(var(--max-width) + 2 * var(--side-padding));
 		margin: 0 auto;
+		padding: 0 var(--side-padding);
 	}
 
 	img {
 		display: block;
 		max-width: 100%;
+		object-fit: cover;
 	}
+
+	@media screen and (max-width: 1500px) {
+    :root {
+      --side-padding: 2rem;
+    }
+  }
+	@media screen and (max-width: 1000px) {
+    :root {
+      --side-padding: 1rem;
+    }
+  }
 </style>

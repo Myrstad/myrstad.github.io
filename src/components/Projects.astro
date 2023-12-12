@@ -1,0 +1,55 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+
+---
+
+<div id="prosjekter" class="background">
+  <div class="container">
+    <h2>Prosjekter</h2>
+    <div class="items">
+      <ProjectCard title="Prosjekt pære" style="left" image={{alt: 'bilde', src: '/images/winter-wonderland.jpg'}}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis iste illo doloremque tenetur sequi eius.
+      </ProjectCard>
+      <ProjectCard title="Prosjekt pære" style="right" image={{alt: 'bilde', src: '/images/winter-wonderland.jpg'}}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis iste illo doloremque tenetur sequi eius.
+      </ProjectCard>
+    </div>
+    <a href="#" class="button" data-cursor-invert="" data-cursor-big="">Se flere prosjekter</a>
+  </div>
+</div>
+
+<style>
+  .background {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: var(--clr-primary-light);
+    border-radius: var(--br-md);
+  }
+
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  h2 {
+    font-size: 4rem;
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+  }
+
+  .button {
+    display: block;
+    font-size: 1.5rem;
+    padding: 1em 2em;
+    width: fit-content;
+    color: white;
+    background-color: black;
+    border-radius: 100vmax;
+    text-decoration: none;
+    margin: 0 auto;
+    margin-top: 6rem;
+  }
+</style>

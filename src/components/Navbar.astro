@@ -5,11 +5,11 @@
 <div class="background">
   <div class="container">
     <div class="content">
-      <div class="logo">
+      <a class="logo" href="/" data-cursor-big="">
         <div class="block"></div>
         myrstad
-      </div>
-      <button data-cursor-big="true">
+      </a>
+      <button data-cursor-big="">
         <div class="hamburger"></div>
       </button>
     </div>
@@ -18,9 +18,10 @@
 
 <style>
   .background {
+    z-index: 100;
     background-color: rgb(255 255 255 / 0.5);
     backdrop-filter: blur(8px);
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
   }
@@ -40,6 +41,8 @@
     font-size: 1.25rem;
     line-height: 100%;
     font-weight: 500;
+    color: black;
+    text-decoration: none;
   }
   .logo .block {
     background-color: black;
