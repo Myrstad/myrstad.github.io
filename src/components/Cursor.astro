@@ -42,19 +42,22 @@
   let ballX = window.innerWidth  / 2
   let ballY = window.innerHeight / 2
 
-  let speed = 0.02
+  let speed = 5
+  let deltaTime = 0
+  let prevTime = performance.now()
 
   function animate(){
     cursorWidth = cursorElement.clientWidth
     let distX = cursorX - ballX - cursorWidth / 2;
     let distY = cursorY - ballY - cursorWidth / 2;
     
-    
-    ballX = ballX + (distX * speed);
-    ballY = ballY + (distY * speed);
+    deltaTime = (performance.now() - prevTime) / 1000 //ms
+    ballX = ballX + (distX * speed * deltaTime);
+    ballY = ballY + (distY * speed * deltaTime);
     
     cursorElement.style.left = ballX + "px";
     cursorElement.style.top = ballY + "px";
+    prevTime = performance.now()
     requestAnimationFrame(animate);
   }
   animate()

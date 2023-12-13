@@ -48,4 +48,26 @@ const { title, image, nth="first" } = Astro.props;
 		margin: 0;
 		margin-bottom: 1rem;
 	}
+
+	 @media screen and (max-width: 1000px) {
+		.card {
+			height: unset;
+		}
+		.first {
+			grid-column: span 2;
+		}
+		.two{
+		margin-top: 0;
+
+		}
+		.three{
+			margin-top: 0;
+		}
+	 }
+
+	 @media screen and (max-width: 700px) {
+		.first {
+			grid-column: unset;
+		}
+	 }
 </style>

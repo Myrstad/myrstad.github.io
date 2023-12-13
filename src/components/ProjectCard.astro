@@ -83,6 +83,7 @@ const { style, image, title="Udefinert prosjekt :(", href="#"} = Astro.props
     flex: 1;
     font-size: 1.25rem;
     line-height: 150%;
+    width: 100%;
   }
   .content a {
     color: black;
@@ -94,5 +95,25 @@ const { style, image, title="Udefinert prosjekt :(", href="#"} = Astro.props
     margin: 0;
     margin-bottom: 1rem;
     text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .project.left,
+    .project.right {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .content {
+      max-width: 50ch;
+    }
+    .left .image a,
+    .right .image a{
+      top: 0;
+      left: 0;
+      right: unset;
+      bottom: unset;
+      border-radius: var(--br-lg) 0 var(--br-lg) 0;
+    }
   }
 </style>

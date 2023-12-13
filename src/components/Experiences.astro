@@ -3,7 +3,7 @@ import ExperienceCard from "./ExperienceCard.astro";
 
 ---
 
-<div class="container">
+<div class="container" id="opplevelser">
   <h2>STORE OPPLEVELSER</h2>
   <div class="items">
     <ExperienceCard image={{alt: "Logo, Norsk Informatikk Olympiade", src:"/images/nio.png"}} title="NIO: Runde 2 kvalifisering">
@@ -35,5 +35,17 @@ import ExperienceCard from "./ExperienceCard.astro";
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .items{
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .items{
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
   }
 </style>
