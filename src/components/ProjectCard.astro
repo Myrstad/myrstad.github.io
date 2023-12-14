@@ -21,11 +21,11 @@ const { style, image, title="Udefinert prosjekt :(", href="#"} = Astro.props
     <slot></slot>
   </div>
   <div class="image">
-    <img src={image.src} alt={image.alt}>
+    <img src={image.src} alt={image.alt} loading="lazy">
     <a href={href} class="button" data-cursor-big="">
-      Les mer
+      Se prosjekt
       <svg width="77" height="6" viewBox="0 0 77 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M77 3L72 0.113249V5.88675L77 3ZM0 3.5H72.5V2.5H0V3.5Z" fill="black"/>
+        <path d="M77 3L72 0.113249V5.88675L77 3ZM0 3.5H72.5V2.5H0V3.5Z" fill="black"/ data-cursor-big="">
       </svg>
     </a>
   </div>
@@ -95,6 +95,23 @@ const { style, image, title="Udefinert prosjekt :(", href="#"} = Astro.props
     margin: 0;
     margin-bottom: 1rem;
     text-transform: uppercase;
+    width: fit-content;
+    position: relative;
+  }
+
+  .content h3::after {
+    content: '';
+    position: absolute;
+    background-color: black;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    transition: left 500ms;
+  }
+
+  .content h3:hover::after {
+    left: 100%;
   }
 
   @media screen and (max-width: 1000px) {
@@ -103,7 +120,7 @@ const { style, image, title="Udefinert prosjekt :(", href="#"} = Astro.props
       flex-direction: column;
       align-items: flex-start;
     }
-
+    
     .content {
       max-width: 50ch;
     }
@@ -114,6 +131,29 @@ const { style, image, title="Udefinert prosjekt :(", href="#"} = Astro.props
       right: unset;
       bottom: unset;
       border-radius: var(--br-lg) 0 var(--br-lg) 0;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .content {
+      font-size: 1rem;
+    }
+    .content h3 {
+      font-size: 1.5rem;
+    }
+    .image img {
+      border-radius: var(--br-md);
+    }
+    
+    .left .image a,
+    .right .image a {
+      height: auto;
+      padding-block: 1em;
+      border-radius: var(--br-md) 0 var(--br-md) 0;
+      font-size: 1rem;
+    }
+    
+    .image a svg {
+      display: none;
     }
   }
 </style>

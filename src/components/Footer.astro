@@ -1,0 +1,37 @@
+---
+
+---
+
+<footer>
+  <p>utviklet av morten myrstad &copy; 2023-<span id="copyright-year"></span></p>
+</footer>
+
+<style>
+  footer {
+    background-color: #373940;
+    min-height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  p {
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    margin: 0;
+    color: white;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 500px) {
+    p {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  const yearElement = document.getElementById("copyright-year") as HTMLSpanElement
+  yearElement.innerText = new Date().getFullYear().toString()
+</script>

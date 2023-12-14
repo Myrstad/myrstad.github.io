@@ -1,0 +1,109 @@
+---
+
+---
+
+<div class="container" id="ta-kontakt">
+  <div class="text">
+    <h2>KONTAKT</h2>
+    <p>Ønsker du å huke tak i meg, er jeg tilgjengelig på epost. Dette er også den eneste måten du kan få kontakt med meg på. Enten du ønsker CV, referanser eller gi meg et jobbtilbud.</p>
+    <a href="mailto:post@mortenmyrstad.no" data-cursor-big="">post@mortenmyrstad.no</a>
+  </div>
+  <div class="img">
+    <img src="/images/winter-flake.jpg" alt="Dekorativt snøflak" loading="lazy">
+  </div>
+</div>
+
+<style>
+  .container {
+    padding-block: 6rem;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+  }
+
+  .text {
+    grid-column: 2 / span 2;
+    padding-block: 2rem;
+  }
+  
+  .img {
+    grid-column: 4 / span 2;
+  }
+  h2 {
+    font-size: 4rem;
+    font-weight: normal;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  p {
+    line-height: 150%;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  a {
+    display: block;
+    width: fit-content;
+    font-size: 1.5rem;
+    line-height: 100%;
+    color: black;
+    text-decoration: none;
+    outline: 2px solid black;
+    outline-offset: -2px;
+    border-radius: 1.5em;
+    padding: 1em 2em;
+  }
+
+  .img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--br-lg);
+  }
+
+  @media screen and (max-width: 1500px) {
+    .container {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .text {
+      grid-column: unset;
+    }
+    
+    .img {
+      grid-column: unset;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .container {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .container {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .img img {
+      max-height: 16rem;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    a {
+      font-size: 1.25rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    h2 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+    }
+  }
+</style>
