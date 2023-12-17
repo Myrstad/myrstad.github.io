@@ -6,12 +6,27 @@
   <div class="container">
     <div class="content">
       <a class="logo" href="/" data-cursor-big="">
-        <div class="block"></div>
+        <img src="/favicon.svg" alt="m logo">
         myrstad
       </a>
-      <button data-cursor-big="">
+      <!-- <button data-cursor-big="">
         <div class="hamburger"></div>
-      </button>
+      </button> -->
+      <input type="checkbox" id="navigation-toggle" aria-controls="navigation" aria-label="Åpne/lukke navigasjon">
+      <label for="navigation-toggle" data-cursor-big="">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <nav class="menu" id="navigation">
+        <ul>
+          <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#intro">intro</a></li>
+          <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#prosjekter">prosjekter</a></li>
+          <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#opplevelser">opplevelser</a></li>
+          <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#ferdigheter">ferdigheter</a></li>
+          <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#ta-kontakt">kontakt</a></li>
+        </ul>
+      </nav>
     </div>
   </div>
 </div>
@@ -19,11 +34,15 @@
 <style>
   .background {
     z-index: 100;
-    background-color: rgb(255 255 255 / 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(1rem);
     position: fixed;
     top: 0;
     width: 100%;
+  }
+
+  .background :has(#navigation-toggle:checked) {
+    background-color: var(--clr-primary-light);
   }
 
   .content {
@@ -44,49 +63,173 @@
     color: black;
     text-decoration: none;
   }
-  .logo .block {
-    background-color: black;
-    width: 1.5rem;
-    height: 1.5rem;
+
+  .logo img {
+    height: 2rem;
+    widows: 2rem;
   }
-  button {
-    all: unset;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 2rem;
-    background-color: transparent;
-    transition: background 200ms;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-  }
-  .hamburger {
-    position: relative;
-    z-index: 100;
-    transform: translate(-0.25rem);
-    width: 1.5rem;
-    height: 2px;
-    background-color: black;
-    border-radius: 1px;
+  input {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden; 
   }
 
-  .hamburger::before {
-    content: '';
-    position: absolute;
-    width: 2rem;
-    height: 2px;
-    border-radius: 1px;
-    background-color: black;
-    transform: translateY(-6px);
+  input:focus-visible ~ label {
+    outline: 2px solid black;
+    outline-offset: 2px;
   }
-  .hamburger::after {
-    content: '';
-    position: absolute;
+
+  label {
     width: 2rem;
+    height: 2rem;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  label span {
+    position: absolute;
+    top: 48%;
+    display: block;
     height: 2px;
-    border-radius: 1px;
+    border-radius: 2px;
+    width: 100%;
     background-color: black;
+    transition: transform 500ms;
+    transform-origin: center;
+  }
+
+  label span:nth-child(1) {
+    transform: translateY(-6px);
+  
+  }
+  label span:nth-child(2) {
+    right: .5rem;
+  }
+
+  label span:nth-child(3) {
     transform: translateY(6px);
   }
+
+  #navigation-toggle:checked ~ label span:nth-child(1){
+      transform: translateY(0) rotate(45deg);
+    }
+  #navigation-toggle:checked ~ label span:nth-child(2){
+    transform: translateX(-100%);
+  }
+  #navigation-toggle:checked ~ label span:nth-child(3){
+    transform: translateY(0) rotate(-45deg);
+  }
+
+  .menu {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--clr-primary-light, #fff);
+    transition: bottom 500ms;
+    overflow: hidden;
+  }
+  
+  .menu ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 500ms 500ms, opacity 250ms;
+    transform: translateX(-4rem);
+    opacity: 0;  
+    list-style: none;
+  }
+
+  .menu a {
+    display: block;
+    color: black;
+    transition: color 1000ms;
+    line-height: 100%;
+    text-decoration: none;
+    padding: 1rem 3rem;
+    font-size: 6rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .menu a:hover {
+    color: blue;
+  }
+
+  
+  .menu a:hover::before {
+    content: '-->';
+  }
+  
+  #navigation-toggle:checked ~ .menu {
+    bottom: calc(-100vh + 4rem);
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    overflow-y: auto;
+  }
+
+  #navigation-toggle:checked ~ .menu ul {
+    transform: translateX(0);
+    transition: transform 500ms 500ms, opacity 500ms 500ms;
+    opacity: 1;
+  }
+
+  @media screen and (max-width:1000px) {
+    .menu a {
+      padding: 1rem 1rem;
+      font-size: 4rem;
+    }
+  }
+  @media screen and (max-width:700px) {
+    .menu a {
+      font-size: 3rem;
+    }
+  }
+  @media screen and (max-width:500px) {
+    .menu a {
+      font-size: 2.5rem;
+      font-weight: 400;
+    }
+  }
 </style>
+
+<script>
+  const navLinks = document.querySelectorAll(".menu a") as NodeListOf<HTMLAnchorElement>;
+  const checkbox = document.querySelector("#navigation-toggle") as HTMLInputElement;
+  const body = document.querySelector("body");
+
+  checkbox.addEventListener('change', ()=>{
+    console.log(checkbox.checked);
+    if (checkbox.checked) {
+      navLinks.forEach(link=>{
+        link.tabIndex = 0
+      })
+      body?.classList.add("no-scroll")
+    }
+    else {
+      navLinks.forEach(link=>{
+        link.tabIndex = -1
+      })
+      body?.classList.remove("no-scroll")
+    }
+  })
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', ()=>{
+      body?.classList.remove("no-scroll")
+      checkbox.checked = false;
+      navLinks.forEach(link=>{
+        link.tabIndex = -1
+      })
+    })
+  });
+</script>
