@@ -7,11 +7,11 @@ import ProjectCard from "./ProjectCard.astro";
   <div class="container">
     <h2>Prosjekter</h2>
     <div class="items">
-      <ProjectCard title="Prosjekt pære" style="left" image={{alt: 'bilde', src: '/images/winter-wonderland.jpg'}}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis iste illo doloremque tenetur sequi eius.
+      <ProjectCard title="Myrstadbloggen" style="left" image={{alt: 'bilde', src: '/images/myrstadbloggen.png'}} href="https://blog.mortenmyrstad.no/">
+        Dette var årets sommerprosjekt, bygget med Astro, hvorfor ikke bruke sommeren til å lage en blogg? Og hvorfor ikke sjekke den ut?
       </ProjectCard>
-      <ProjectCard title="Prosjekt pære" style="right" image={{alt: 'bilde', src: '/images/winter-wonderland.jpg'}}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis iste illo doloremque tenetur sequi eius.
+      <ProjectCard title="Toki Pona Ordbok" style="right" image={{alt: 'bilde', src: '/images/tokipona.png'}} href="/toki-pona-project/">
+        Jeg fikk plutselig lyst til å prøve å lære planspråket "toki pona" eller "det gode språk". Så jeg lagde en enkel ordbok!
       </ProjectCard>
     </div>
     <a href="https://github.com/Myrstad/" target="_blank" class="button" data-cursor-invert="" data-cursor-big="">Flere prosjekter -> GitHub</a>
@@ -22,7 +22,7 @@ import ProjectCard from "./ProjectCard.astro";
   .background {
     padding-top: 6rem;
     padding-bottom: 6rem;
-    background-color: var(--clr-primary-light);
+    background-color: var(--clr-primary-50);
     border-radius: var(--br-md);
   }
 

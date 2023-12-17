@@ -14,11 +14,21 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, target-densitydpi=device-dpi" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<!-- SEO & SOCIALS -->
 		<title>{title}</title>
+		<meta name="description" content="TODO: skriv en bedre beskrivelse til nettsiden" />
+		<meta name="theme-color" content="#D7E3F4">
+		<meta property="og:locale" content="no_NO">
+		<meta property="og:url" content="http://mortenmyrstad.no/" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Morten Myrstad" />
+		<meta property="og:description" content="TODO: skriv en bedre beskrivelse til nettsiden" />
+		<meta property="og:image" content="/images/website-socials.png" />
+		<meta name="twitter:card" content="summary_large_image"></meta>
+		<!-- FONTS -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 	</head>
@@ -44,7 +54,8 @@ const { title } = Astro.props;
 		/* colors */
 		--clr-dark: #000;
 		--clr-light: #fff;
-		--clr-primary-light: #E5ECF5;
+		--clr-primary-50: #E5ECF5;
+		--clr-primary-100: #D7E3F4;
 
 		--side-padding: 3rem;
 	}

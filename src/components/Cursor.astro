@@ -8,6 +8,7 @@
 
 <style>
   .cursor {
+    overflow: hidden;
     z-index: 1000;
     width: 1rem;
     height: 1rem;
@@ -31,7 +32,12 @@
     width: 6rem;
     height: 6rem;
   }
-  
+
+  @media screen and (max-width: 500px) {
+    .cursor {
+      display: none;
+    }
+  }  
 </style>
 
 <script>
