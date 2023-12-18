@@ -1,18 +1,21 @@
 ---
 import ExperienceCard from "./ExperienceCard.astro";
 
+import nioImage from '../assets/images/nio.png'
+import neticaImage from '../assets/images/netica.png'
+import nmImage from '../assets/images/haandball.png'
 ---
 
 <div class="container" id="opplevelser">
   <h2>STORE OPPLEVELSER</h2>
   <div class="items">
-    <ExperienceCard image={{alt: "Logo, Norsk Informatikk Olympiade", src:"/images/nio.png"}} title="NIO: Runde 2 kvalifisering">
+    <ExperienceCard image={nioImage} alt="Logo, Norsk Informatikk Olympiade" title="NIO: Runde 2 kvalifisering">
       Norsk informatikkolympiade (NIO) er en olympiade der IT-kunnskaper blir satt på spill. Programmering, kritisk tenking og problemløsning er hovedegenskapene som testes. I fjor fokuserte jeg på å lære C++, i år fokuserer jeg på best mulig resultat i runde 2. Alt i håp om å komme med i finalen.
     </ExperienceCard>
-    <ExperienceCard image={{alt: "Logo, Netica Ungdomsbedrift", src:"/images/netica.png"}} title="Teknisk ansvarlig, Netica UB" nth="two">
+    <ExperienceCard image={neticaImage} alt="Logo, Netica Ungdomsbedrift" title="Teknisk ansvarlig, Netica UB" nth="two">
       Netica UB var en ungdomsbedrift som lagde nettsider til lokale bedrifter. Ikke bare lagde vi nettsider, men vi ga også opplæring i WordPress som forøvrig var CMS-et vi brukte. Jeg var teknisk utvikler, med hovedfokus på design.
     </ExperienceCard>
-    <ExperienceCard image={{alt: "NM Håndball", src:"/images/haandball.png"}} title="Deltager NM håndball" nth="three">
+    <ExperienceCard image={nmImage} alt="NM Håndball" title="Deltager NM håndball" nth="three">
       Jeg var keeper i Urædd Håndball lenge, jeg begynte i 4. klasse som ving / strek. Men ettersom laget trengte en keeper meldte jeg meg som frivillig. Keeper passet meg perfekt og jeg storkoste meg. Og ble tilsutt ganske god. Spilte i NM senior som 16 åring med A-laget mot Notodden og spilte 15 av 60 minutter. En utrolig morsom opplevelse av mange grunner.
     </ExperienceCard>
   </div>

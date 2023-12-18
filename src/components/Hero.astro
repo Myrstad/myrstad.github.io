@@ -1,9 +1,12 @@
 ---
-
+import { Image } from 'astro:assets'
+import decorImage from '../assets/images/winter-lake.jpg'
+import heroImage from '../assets/images/winter-wonderland.jpg'
 ---
 
 <div class="container" id="intro">
-  <img src="/images/winter-wonderland.jpg" alt="" loading="eager">
+  <!-- <img src="/images/winter-wonderland.jpg" alt="" loading="eager"> -->
+  <Image src={heroImage} alt="Dekorativt: hytte ved en dam på vinteren" loading="eager" width={1824} />
   <div class="content">
     <div class="column">
       <p class="eyebrow">webutvikler & student</p>
@@ -19,7 +22,8 @@
       </div>
     </div>
     <div class="column">
-      <img src="/images/winter-lake.jpg" alt="Dekorativt: hytte ved en dam på vinteren" loading="lazy">
+      <!-- <img src="/images/winter-lake.jpg" alt="Dekorativt: hytte ved en dam på vinteren" loading="lazy"> -->
+      <Image src={decorImage} alt="Dekorativt: hytte ved en dam på vinteren" height={350} />
   </div>
 </div>
 
@@ -93,7 +97,7 @@
     max-height: 350px;
     width: 100%;
     object-fit: cover;
-    border-radius: .75rem 2rem .75rem 2rem;
+    border-radius: 2rem;
   }
 
   @media screen and (max-width: 1500px) {

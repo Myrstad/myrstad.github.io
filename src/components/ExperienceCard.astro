@@ -1,18 +1,19 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
 	title: string;
-	image: {
-		src: string;
-		alt: string;
-	}
+	image: ImageMetadata;
+	alt: string;
 	nth?: string;
 }
 
-const { title, image, nth="first" } = Astro.props;
+const { title, image, nth="first", alt } = Astro.props;
 ---
 
 <div class:list={["card", nth]}>
-	<img src={image.src} alt={image.alt} data-cursor-invert="" loading="lazy">
+	<!-- <img src={image.src} alt={image.alt} data-cursor-invert="" loading="lazy"> -->
+	<Image src={image} alt={alt} />
 	<div class="content">
 		<h3>{title}</h3>
 		<slot></slot>

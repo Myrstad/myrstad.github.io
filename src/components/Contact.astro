@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 
+import contactImage from '../assets/images/winter-flake.jpg'
 ---
 
 <div class="container" id="ta-kontakt">
@@ -9,7 +11,8 @@
     <a href="mailto:post@mortenmyrstad.no" data-cursor-big="">post@mortenmyrstad.no</a>
   </div>
   <div class="img">
-    <img src="/images/winter-flake.jpg" alt="Dekorativt snøflak" loading="lazy">
+    <Image src={contactImage} alt="Dekorativt snøfnugg" width={720} />
+    <!-- <img src="/images/winter-flake.jpg" alt="Dekorativt snøflak" loading="lazy"> -->
   </div>
 </div>
 

@@ -1,15 +1,15 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
   style: 'left' | 'right';
-  image: {
-    src: string;
-    alt: string;
-  }
+  image: ImageMetadata;
   title: string;
+  alt: string;
   href?: string;
 }
 
-const { style, image, title="Udefinert prosjekt :(", href="#"} = Astro.props
+const { style, image, title, href="#", alt} = Astro.props
 ---
 
 <div class:list={["project", style]}>
@@ -20,7 +20,8 @@ const { style, image, title="Udefinert prosjekt :(", href="#"} = Astro.props
     <slot></slot>
   </div>
   <div class="image">
-    <img src={image.src} alt={image.alt} loading="lazy">
+    <!-- <img src={image.src} alt={image.alt} loading="lazy"> -->
+    <Image src={image} alt={alt} width={1205} height={652} />
     <a href={href} class="button" data-cursor-big="">
       Se prosjekt
       <svg width="77" height="6" viewBox="0 0 77 6" fill="none" xmlns="http://www.w3.org/2000/svg">
