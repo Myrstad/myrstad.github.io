@@ -1,0 +1,237 @@
+---
+
+---
+
+<div class="background">
+  <div class="container">
+    <div class="content">
+      <a class="logo" href="/" data-cursor-big="">
+        <img src="/favicon.svg" alt="m logo">
+        Myrstad
+      </a>
+      <!-- <button data-cursor-big="">
+        <div class="hamburger"></div>
+      </button> -->
+      <input type="checkbox" id="navigation-toggle" aria-controls="navigation" aria-label="Åpne/lukke navigasjon">
+      <label for="navigation-toggle" data-cursor-big="">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <nav class="menu" id="navigation">
+        <div class="container">
+          <ul>
+            <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#intro">intro</a></li>
+            <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#prosjekter">prosjekter</a></li>
+            <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#opplevelser">opplevelser</a></li>
+            <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#ferdigheter">ferdigheter</a></li>
+            <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#ta-kontakt">kontakt</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<style>
+  .background {
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(1rem);
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .background:has(#navigation-toggle:checked) {
+    background-color: var(--clr-primary-50);
+  }
+
+  .content {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--clr-dark);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    line-height: 100%;
+    font-weight: 500;
+    color: black;
+    text-decoration: none;
+  }
+
+  .logo img {
+    height: 2rem;
+    width: 2rem;
+  }
+  input {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden; 
+  }
+
+  input:focus-visible ~ label {
+    outline: 2px solid black;
+    outline-offset: 2px;
+  }
+
+  label {
+    width: 2rem;
+    height: 2rem;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  label span {
+    position: absolute;
+    top: 48%;
+    display: block;
+    height: 2px;
+    border-radius: 2px;
+    width: 100%;
+    background-color: black;
+    transition: transform 500ms;
+    transform-origin: center;
+  }
+
+  label span:nth-child(1) {
+    transform: translateY(-6px);
+  
+  }
+  label span:nth-child(2) {
+    right: .5rem;
+  }
+
+  label span:nth-child(3) {
+    transform: translateY(6px);
+  }
+
+  #navigation-toggle:checked ~ label span:nth-child(1){
+      transform: translateY(0) rotate(45deg);
+    }
+  #navigation-toggle:checked ~ label span:nth-child(2){
+    transform: translateX(-100%);
+  }
+  #navigation-toggle:checked ~ label span:nth-child(3){
+    transform: translateY(0) rotate(-45deg);
+  }
+
+  .menu {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--clr-primary-50, #fff);
+    transition: bottom 500ms;
+    overflow: hidden;
+  }
+  
+  .menu ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 500ms 500ms, opacity 250ms;
+    transform: translateX(-4rem);
+    opacity: 0;  
+    list-style: none;
+  }
+
+  .menu a {
+    display: block;
+    color: black;
+    transition: color 1000ms;
+    line-height: 100%;
+    text-decoration: none;
+    padding: 1rem 0;
+    font-size: 6rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .menu a:hover {
+    color: blue;
+  }
+
+  
+  .menu a:hover::before {
+    content: '-->';
+  }
+  
+  #navigation-toggle:checked ~ .menu {
+    bottom: calc(-100vh + 4rem);
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    overflow-y: auto;
+  }
+
+  #navigation-toggle:checked ~ .menu ul {
+    transform: translateX(0);
+    transition: transform 500ms 500ms, opacity 500ms 500ms;
+    opacity: 1;
+  }
+
+  @media screen and (max-width:1000px) {
+    .menu a {
+      padding: 1rem 1rem;
+      font-size: 4rem;
+    }
+  }
+  @media screen and (max-width:700px) {
+    .menu a {
+      font-size: 3rem;
+    }
+  }
+  @media screen and (max-width:500px) {
+    .menu a {
+      font-size: 2.5rem;
+      font-weight: 400;
+    }
+  }
+</style>
+
+<script>
+  const navLinks = document.querySelectorAll(".menu a") as NodeListOf<HTMLAnchorElement>;
+  const checkbox = document.querySelector("#navigation-toggle") as HTMLInputElement;
+  const body = document.querySelector("body");
+
+  checkbox.addEventListener('change', ()=>{
+    console.log(checkbox.checked);
+    if (checkbox.checked) {
+      navLinks.forEach(link=>{
+        link.tabIndex = 0
+      })
+      body?.classList.add("no-scroll")
+    }
+    else {
+      navLinks.forEach(link=>{
+        link.tabIndex = -1
+      })
+      body?.classList.remove("no-scroll")
+    }
+  })
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', ()=>{
+      body?.classList.remove("no-scroll")
+      checkbox.checked = false;
+      navLinks.forEach(link=>{
+        link.tabIndex = -1
+      })
+    })
+  });
+</script>

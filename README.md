@@ -1,5 +1,9 @@
-# myrstad.github.io
+# mortenmyrstad.no
 
-## Mitt personlige nettsted
+### En portefølje for å vise fram kunnskaper og prosjekter
 
-sjekk ut [nettsiden her](https://mortenmyrstad.no/) (mortenmyrstad.no)
+Denne nettsiden er lagd for hånd, med kjærlighet, får å vise fram prosjekter og ferdighetene mine. Kontaktinformasjonen min finner du også på siden. Her er URLen [mortenmyrstad.no](https://mortenmyrstad.no/) :D
+
+### SOME-bilde
+
+![Sosiale medier "teaser"](/public/images/website-socials.png)

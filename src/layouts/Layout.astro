@@ -1,0 +1,112 @@
+---
+import Cursor from '../components/Cursor.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<!-- SEO & SOCIALS -->
+		<title>{title}</title>
+		<meta name="description" content="Denne siden er lagd for hånd, med kjærlighet, får å vise fram prosjekter og ferdighetene mine. E-post finner du også." />
+		<meta name="theme-color" content="#D7E3F4">
+		<meta property="og:locale" content="no_NO">
+		<meta property="og:url" content="http://mortenmyrstad.no/" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content="Denne siden er lagd for hånd, med kjærlighet, får å vise fram prosjekter og ferdighetene mine. E-post finner du også." />
+		<meta property="og:image" content="/images/website-socials.png" />
+		<meta name="twitter:card" content="summary_large_image"></meta>
+		<!-- FONTS -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	</head>
+	<body>
+		<Cursor></Cursor>
+		<div class="white-space"></div>
+		<Navbar></Navbar>
+		<slot />
+		<Footer></Footer>
+	</body>
+</html>
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&display=swap');
+	:root {
+		--max-width: 1824px;
+		--column-space: 2rem;
+
+		/* Border radius */
+		--br-lg: 3rem;
+		--br-md: 2rem;
+		--br-sm: 1rem;
+
+		/* colors */
+		--clr-dark: #000;
+		--clr-light: #fff;
+		--clr-primary-50: #E5ECF5;
+		--clr-primary-100: #D7E3F4;
+
+		--side-padding: 3rem;
+	}
+
+	*, *::before, *::after {
+		box-sizing: border-box;
+		font-family: 'Inter', sans-serif;
+	}
+
+	*:focus-visible {
+		outline: 2px solid rgb(255, 165, 0);
+		outline-offset: 4px;
+	}
+
+	html {
+		scroll-behavior: smooth;
+		scroll-padding-top: 4rem;
+	}
+	
+	body {
+		background-color: var(--clr-light);
+		margin: 0;
+		font-size: 1rem;
+		padding-top: 4rem;
+		overflow-x: hidden;
+	}
+	.no-scroll {
+		overflow-y: hidden;
+	}
+
+	.container {
+		width: 100%;
+		max-width: calc(var(--max-width) + 2 * var(--side-padding));
+		margin: 0 auto;
+		padding: 0 var(--side-padding);
+	}
+
+	img {
+		display: block;
+		max-width: 100%;
+		object-fit: cover;
+	}
+
+	@media screen and (max-width: 1500px) {
+    :root {
+      --side-padding: 2rem;
+    }
+  }
+	@media screen and (max-width: 1000px) {
+    :root {
+      --side-padding: 1rem;
+    }
+  }
+</style>

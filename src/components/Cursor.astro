@@ -1,0 +1,86 @@
+---
+
+---
+
+<div class="cursor">
+
+</div>
+
+<style>
+  .cursor {
+    overflow: hidden;
+    z-index: 1000;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50vmax;;
+    position: absolute;
+    background-color: rgb(0 0 255 / 0.2);
+    pointer-events: none;
+    transition: width 1s ease, height 1s ease, background 1s ease, backdrop-filter 1s ease;
+    backdrop-filter: invert(0);
+  }
+
+  
+  .cursor.invert {
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+    backdrop-filter: invert(0.95) hue-rotate(180deg);
+  }
+
+  .cursor.big {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    .cursor {
+      display: none;
+    }
+  }  
+</style>
+
+<script>
+  const cursorElement = document.querySelector(".cursor") as HTMLElement;
+  let cursorWidth = cursorElement.clientWidth
+  let cursorX = window.innerWidth  / 2
+  let cursorY = window.innerHeight / 2
+  let ballX = window.innerWidth  / 2
+  let ballY = window.innerHeight / 2
+
+  let speed = 5
+  let deltaTime = 0
+  let prevTime = performance.now()
+
+  function animate(){
+    cursorWidth = cursorElement.clientWidth
+    let distX = cursorX - ballX - cursorWidth / 2;
+    let distY = cursorY - ballY - cursorWidth / 2;
+    
+    deltaTime = (performance.now() - prevTime) / 1000 //ms
+    ballX = ballX + (distX * speed * deltaTime);
+    ballY = ballY + (distY * speed * deltaTime);
+    
+    cursorElement.style.left = ballX + "px";
+    cursorElement.style.top = ballY + "px";
+    prevTime = performance.now()
+    requestAnimationFrame(animate);
+  }
+  animate()
+
+  document.addEventListener("mousemove", e=>{
+    cursorX = e.pageX
+    cursorY = e.pageY
+    let hoverTarget = e.target as HTMLElement
+    if (hoverTarget.hasAttribute('data-cursor-big') || hoverTarget.parentElement?.hasAttribute('data-cursor-big')) {
+      cursorElement.classList.add("big")
+    } else {
+      cursorElement.classList.remove("big")
+    }
+    if (hoverTarget.hasAttribute('data-cursor-invert') || hoverTarget.parentElement?.hasAttribute('data-cursor-invert')) {
+      cursorElement.classList.add("invert")
+    } else {
+      cursorElement.classList.remove("invert")
+    }
+  })
+</script>

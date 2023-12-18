@@ -1,0 +1,160 @@
+---
+import { Image } from 'astro:assets'
+
+import figmaImg from '../assets/logo/figma.png'
+import frontendImg from '../assets/logo/HTML-JS-CSS.png'
+import cppImg from '../assets/logo/cpp.png'
+import pythonImg from '../assets/logo/python.png'
+import gitImg from '../assets/logo/git.png'
+import astroImg from '../assets/logo/astro.png'
+---
+
+<div id="ferdigheter" class="background">
+  <div class="container">
+    <div class="layout">
+      <div class="text">
+        <h2>Ferdigheter</h2>
+        <p>Problemet, eller kanskje fordelen med å ha informatikk som hobby og skolefag er at man lærer så mye forskjellig. Så dette er bare toppen av kransekaken av alt jeg kan eller har lært. Og disse symboliserer mine klare favoritter, men også de jeg er blitt drevne i over tid.</p>
+      </div>
+      <div class="grid">
+        <!-- <div class="item"><img loading="lazy" src="/logo/figma.png" alt="Figma logo"></div>
+        <div class="item"><img loading="lazy" src="/logo/HTML-JS-CSS.png" alt="HTML, CSS og JavaScript"></div>
+        <div class="item"><img loading="lazy" src="/logo/cpp.png" alt="C++"></div>
+        <div class="item"><img loading="lazy" src="/logo/python.png" alt="Python"></div>
+        <div class="item"><img loading="lazy" src="/logo/git.png" alt="Git"></div>
+        <div class="item"><img loading="lazy" src="/logo/astro.png" alt="Astro"></div> -->
+        <div class="item"><Image src={figmaImg} alt="Figma logo"></div>
+        <div class="item"><Image src={frontendImg} alt="HTML, CSS og JavaScript"></div>
+        <div class="item"><Image src={cppImg} alt="C++"></div>
+        <div class="item"><Image src={pythonImg} alt="Python"></div>
+        <div class="item"><Image src={gitImg} alt="Git"></div>
+        <div class="item"><Image src={astroImg} alt="Astro"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .background {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: var(--clr-primary-50);
+    border-radius: var(--br-md);
+  }
+
+  .layout {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .text,
+  .grid {
+    flex: 1;
+  }
+
+  
+  h2 {
+    font-size: 4rem;
+    font-weight: normal;
+    margin: 0;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  
+  p {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 150%;
+  }
+
+  .grid {
+    flex-grow: 2;
+    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 12rem);
+  }
+  
+  .grid .item {
+    padding: 2rem;
+    background-color: white;
+    border-radius: var(--br-md);
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .grid img{
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .grid .item:nth-child(1){
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .grid .item:nth-child(2){
+    grid-column: span 2;
+  }
+  .grid .item:nth-child(4){
+    grid-row: span 2;
+  }
+  .grid .item:nth-child(6){
+    grid-column: span 2;
+  }
+  @media screen and (max-width: 1500px) {
+    .layout {
+      flex-direction: column;
+    }
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 9rem);
+      gap: 1rem;
+    }
+    .grid .item {
+      padding: 2rem 1rem;
+    }
+    .grid .item:nth-child(2){
+      /* HTML CSS JS */
+      grid-column: 1 / span 2;
+      grid-row: 1;
+    }
+    .grid .item:nth-child(4){
+      /* PYTHON */
+      grid-column: 3;
+      grid-row: 1 / span 2;
+    }
+    .grid .item:nth-child(1){
+      /* FIGMA */
+      grid-column: 1;
+      grid-row: 2;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+
+    .grid > * {
+      grid-column: unset !important;
+      grid-row: unset !important;
+      border-radius: var(--br-sm);
+    }
+
+    h2 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+    }
+  }
+</style>

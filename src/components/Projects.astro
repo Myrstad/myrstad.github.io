@@ -1,0 +1,67 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+
+import myrstadbloggenImage from '../assets/images/myrstadbloggen.png'
+import tokiponaImage from '../assets/images/tokipona.png'
+---
+
+<div id="prosjekter" class="background">
+  <div class="container">
+    <h2>Prosjekter</h2>
+    <div class="items">
+      <ProjectCard title="Myrstadbloggen" style="left" image={myrstadbloggenImage} alt="Logo til myrstadbloggen" href="https://blog.mortenmyrstad.no/">
+        Dette var årets sommerprosjekt, bygget med Astro, hvorfor ikke bruke sommeren til å lage en blogg? Og hvorfor ikke sjekke den ut?
+      </ProjectCard>
+      <ProjectCard title="Toki Pona Ordbok" style="right" image={tokiponaImage} alt="Illustrasjon av ordboken / appen" href="/toki-pona-project/">
+        Jeg fikk plutselig lyst til å prøve å lære planspråket "toki pona" eller "det gode språk". Så jeg lagde en enkel ordbok!
+      </ProjectCard>
+    </div>
+    <a href="https://github.com/Myrstad/" target="_blank" class="button" data-cursor-invert="" data-cursor-big="">Flere prosjekter -> GitHub</a>
+  </div>
+</div>
+
+<style>
+  .background {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: var(--clr-primary-50);
+    border-radius: var(--br-md);
+  }
+
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  h2 {
+    font-size: 4rem;
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+  }
+
+  .button {
+    display: block;
+    font-size: 1.5rem;
+    padding: 1em 2em;
+    width: fit-content;
+    color: white;
+    background-color: black;
+    border-radius: 100vmax;
+    text-decoration: none;
+    margin: 0 auto;
+    margin-top: 6rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    h2 {
+      font-size: 3rem;
+    }
+
+    .button {
+      font-size: 1.25rem;
+    }
+  }
+</style>
