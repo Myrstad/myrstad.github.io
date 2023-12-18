@@ -19,13 +19,15 @@
         <span></span>
       </label>
       <nav class="menu" id="navigation">
-        <ul>
-          <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#intro">intro</a></li>
-          <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#prosjekter">prosjekter</a></li>
-          <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#opplevelser">opplevelser</a></li>
-          <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#ferdigheter">ferdigheter</a></li>
-          <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#ta-kontakt">kontakt</a></li>
-        </ul>
+        <div class="container">
+          <ul>
+            <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#intro">intro</a></li>
+            <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#prosjekter">prosjekter</a></li>
+            <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#opplevelser">opplevelser</a></li>
+            <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#ferdigheter">ferdigheter</a></li>
+            <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#ta-kontakt">kontakt</a></li>
+          </ul>
+        </div>
       </nav>
     </div>
   </div>
@@ -41,7 +43,7 @@
     width: 100%;
   }
 
-  .background :has(#navigation-toggle:checked) {
+  .background:has(#navigation-toggle:checked) {
     background-color: var(--clr-primary-50);
   }
 
@@ -154,7 +156,7 @@
     transition: color 1000ms;
     line-height: 100%;
     text-decoration: none;
-    padding: 1rem 3rem;
+    padding: 1rem 0;
     font-size: 6rem;
     font-weight: 200;
     text-transform: uppercase;
