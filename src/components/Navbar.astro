@@ -133,8 +133,8 @@
     top: 4rem;
     height: calc(100vh - 4rem);
     transform-origin: top;
-    padding-top: 5rem;
-    padding-bottom: 1rem;
+    padding-top: var(--side-padding);
+    padding-bottom: var(--side-padding);
     scale: 1 0;
     left: 0;
     right: 0;
@@ -145,9 +145,10 @@
   
   .menu ul {
     padding: 0 var(--side-padding);
-    margin: 0;
+    margin: 0 auto;
     display: flex;
     width: 100%;
+		max-width: calc(var(--max-width) + 2 * var(--side-padding));
     height: 100%;
     flex-direction: column;
     transition: transform 500ms 500ms, opacity 250ms;
@@ -193,7 +194,7 @@
 
   @media screen and (max-width:1000px) {
     .menu a {
-      padding: 1rem 1rem;
+      padding: 1rem 0rem;
       font-size: 4rem;
     }
   }
@@ -203,6 +204,10 @@
     }
   }
   @media screen and (max-width:500px) {
+    .menu ul {
+      justify-content: flex-end;
+    }
+
     .menu a {
       font-size: 2.5rem;
       font-weight: 400;
