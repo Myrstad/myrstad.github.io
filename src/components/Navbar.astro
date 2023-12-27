@@ -19,7 +19,6 @@
         <span></span>
       </label>
       <nav class="menu" id="navigation">
-        <div class="container">
           <ul>
             <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#intro">intro</a></li>
             <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#prosjekter">prosjekter</a></li>
@@ -27,7 +26,6 @@
             <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#ferdigheter">ferdigheter</a></li>
             <li><a tabindex="-1" data-cursor-big="" data-cursor-invert="" href="#ta-kontakt">kontakt</a></li>
           </ul>
-        </div>
       </nav>
     </div>
   </div>
@@ -41,10 +39,12 @@
     position: fixed;
     top: 0;
     width: 100%;
+    transition: background-color 250ms 500ms;
   }
-
+  
   .background:has(#navigation-toggle:checked) {
     background-color: var(--clr-primary-50);
+    transition: background-color 0ms;
   }
 
   .content {
@@ -100,7 +100,7 @@
     border-radius: 2px;
     width: 100%;
     background-color: black;
-    transition: transform 500ms;
+    transition: height 500ms;
     transform-origin: center;
   }
 
@@ -131,18 +131,24 @@
     display: flex;
     align-items: center;
     top: 4rem;
+    height: calc(100vh - 4rem);
+    transform-origin: top;
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    scale: 1 0;
     left: 0;
     right: 0;
-    bottom: 0;
     background-color: var(--clr-primary-50, #fff);
-    transition: bottom 500ms;
-    overflow: hidden;
+    transition: scale 500ms;
+    overflow: scroll;
   }
   
   .menu ul {
-    padding: 0;
+    padding: 0 var(--side-padding);
     margin: 0;
     display: flex;
+    width: 100%;
+    height: 100%;
     flex-direction: column;
     transition: transform 500ms 500ms, opacity 250ms;
     transform: translateX(-4rem);
@@ -173,10 +179,10 @@
   }
   
   #navigation-toggle:checked ~ .menu {
-    bottom: calc(-100vh + 4rem);
-    padding-top: 5rem;
-    padding-bottom: 1rem;
-    overflow-y: auto;
+    transition: scale 500ms;
+    scale: 1 1;
+    /* padding-top: 5rem;
+    padding-bottom: 1rem; */
   }
 
   #navigation-toggle:checked ~ .menu ul {
@@ -207,10 +213,9 @@
 <script>
   const navLinks = document.querySelectorAll(".menu a") as NodeListOf<HTMLAnchorElement>;
   const checkbox = document.querySelector("#navigation-toggle") as HTMLInputElement;
-  const body = document.querySelector("body");
+  const body = document.querySelector("body"); 
 
   checkbox.addEventListener('change', ()=>{
-    console.log(checkbox.checked);
     if (checkbox.checked) {
       navLinks.forEach(link=>{
         link.tabIndex = 0

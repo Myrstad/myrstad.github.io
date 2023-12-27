@@ -17,6 +17,8 @@ const { title } = Astro.props;
 		<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 		<!-- SEO & SOCIALS -->
 		<title>{title}</title>
 		<meta name="description" content="Denne siden er lagd for hånd, med kjærlighet, får å vise fram prosjekter og ferdighetene mine. E-post finner du også." />
@@ -28,9 +30,6 @@ const { title } = Astro.props;
 		<meta property="og:description" content="Denne siden er lagd for hånd, med kjærlighet, får å vise fram prosjekter og ferdighetene mine. E-post finner du også." />
 		<meta property="og:image" content="/images/website-socials.png" />
 		<meta name="twitter:card" content="summary_large_image"></meta>
-		<!-- FONTS -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 	</head>
 	<body>
 		<Cursor></Cursor>
