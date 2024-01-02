@@ -12,6 +12,7 @@
     z-index: 1000;
     width: 1rem;
     height: 1rem;
+    transform: translate(-50%, -50%);
     border-radius: 50vmax;;
     position: absolute;
     background-color: rgb(0 0 255 / 0.2);
@@ -54,13 +55,13 @@
 
   function animate(){
     cursorWidth = cursorElement.clientWidth
-    let distX = cursorX - ballX - cursorWidth / 2;
-    let distY = cursorY - ballY - cursorWidth / 2;
+    let distX = cursorX - ballX;
+    let distY = cursorY - ballY;
     
     deltaTime = (performance.now() - prevTime) / 1000 //ms
     ballX = ballX + (distX * speed * deltaTime);
     ballY = ballY + (distY * speed * deltaTime);
-    
+
     cursorElement.style.left = ballX + "px";
     cursorElement.style.top = ballY + "px";
     prevTime = performance.now()
