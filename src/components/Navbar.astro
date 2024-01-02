@@ -81,7 +81,7 @@
   }
 
   input:focus-visible ~ label {
-    outline: 2px solid black;
+    outline: 2px solid rgb(255, 165, 0);
     outline-offset: 2px;
   }
 
@@ -176,7 +176,8 @@
   }
 
   
-  .menu a:hover::before {
+  .menu a:hover::before,
+  .menu a:focus-visible::before {
     content: '-->';
   }
   
