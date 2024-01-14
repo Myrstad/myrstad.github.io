@@ -21,7 +21,7 @@ const { style, image, title, href="#", alt} = Astro.props
   </div>
   <div class="image">
     <!-- <img src={image.src} alt={image.alt} loading="lazy"> -->
-    <Image src={image} alt={alt} width={1205} height={652} />
+    <Image src={image} alt={alt} width={1205} height={652} quality={100} />
     <a href={href} class="button" data-cursor-big="">
       Se prosjektet -->
     </a>
