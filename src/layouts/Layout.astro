@@ -5,9 +5,10 @@ import Footer from '../components/Footer.astro';
 
 interface Props {
 	title: string;
+	description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,7 +22,7 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 		<!-- SEO & SOCIALS -->
 		<title>{title}</title>
-		<meta name="description" content="Denne siden er lagd for hånd, med kjærlighet, får å vise fram prosjekter og ferdighetene mine. E-post finner du også." />
+		<meta name="description" content={description} />
 		<meta name="theme-color" content="#D7E3F4">
 		<meta property="og:locale" content="no_NO">
 		<meta property="og:url" content="http://mortenmyrstad.no/" />
@@ -80,6 +81,9 @@ const { title } = Astro.props;
 		font-size: 1rem;
 		padding-top: 4rem;
 		overflow-x: hidden;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
 	}
 
 	/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
