@@ -43,7 +43,6 @@
 
 <script>
   const cursorElement = document.querySelector(".cursor") as HTMLElement;
-  let cursorWidth = cursorElement.clientWidth
   let cursorX = window.innerWidth  / 2
   let cursorY = window.innerHeight / 2
   let ballX = window.innerWidth  / 2
@@ -54,13 +53,20 @@
   let prevTime = performance.now()
 
   function animate(){
-    cursorWidth = cursorElement.clientWidth
     let distX = cursorX - ballX;
     let distY = cursorY - ballY;
     
     deltaTime = (performance.now() - prevTime) / 1000 //ms
     ballX = ballX + (distX * speed * deltaTime);
     ballY = ballY + (distY * speed * deltaTime);
+
+    //
+    let bodyWidth = document.body.offsetWidth;
+    let bodyHeight = document.body.offsetHeight;
+    if (ballX < 0) ballX = 0;
+    if (ballX > bodyWidth) ballX = bodyWidth;
+    if (ballY < 0) ballY = 0;
+    if (ballY > bodyHeight) ballY = bodyHeight;
 
     cursorElement.style.left = ballX + "px";
     cursorElement.style.top = ballY + "px";
