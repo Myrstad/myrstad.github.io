@@ -42,15 +42,25 @@ const { style, image, title, href="#", alt} = Astro.props
     flex: 1;
     flex-grow: 2;
     position: relative;
+    overflow: hidden;
+    border-radius: var(--br-lg);
   }
 
   .image img {
     width: 100%;
     height: auto;
     aspect-ratio: 16/9;
-    border-radius: var(--br-lg);
+    transition: scale 2000ms ease-in-out;
   }
   
+  .project:has(.content a:hover, .content a:focus-visible) img {
+    scale: 1.2;
+  }
+
+  .image:has(a:hover, a:focus-visible) img {
+    scale: 1.2;
+  }
+
   .left .image a{
     left: unset;
     right: 1rem;
