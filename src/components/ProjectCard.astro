@@ -50,15 +50,15 @@ const { style, image, title, href="#", alt} = Astro.props
     width: 100%;
     height: auto;
     aspect-ratio: 16/9;
-    transition: scale 2000ms ease-in-out;
+    transition: scale 1000ms ease;
   }
   
   .project:has(.content a:hover, .content a:focus-visible) img {
-    scale: 1.2;
+    scale: 1.05;
   }
 
   .image:has(a:hover, a:focus-visible) img {
-    scale: 1.2;
+    scale: 1.05;
   }
 
   .left .image a{
@@ -111,11 +111,14 @@ const { style, image, title, href="#", alt} = Astro.props
     left: 0;
     right: 0;
     height: 2px;
-    transition: left 500ms;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 500ms;
   }
 
   .content h3:hover::after {
-    left: 100%;
+    transform-origin: right;
+    transform: scaleX(0);
   }
 
   @media screen and (max-width: 1000px) {
