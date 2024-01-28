@@ -148,18 +148,25 @@ const { style, image, title, href="#", alt} = Astro.props
     .content h3 {
       font-size: 1.5rem;
     }
+
+    .image {
+      overflow: visible;
+    }
+
     .image img {
       border-radius: var(--br-md);
+      scale: 1 !important;
     }
     
     .left .image a,
     .right .image a {
       top: 0;
-      left: 2.5rem;
-      outline: 2px solid #000;
-      transform: translate(0, -50%);
+      left: 50%;
+      outline: 1px solid #000;
+      width: max-content;
+      transform: translate(-50%, -50%);
       height: auto;
-      padding-block: 1em;
+      padding: 0.5em 1.25rem;
       font-size: 1rem;
     }
     
