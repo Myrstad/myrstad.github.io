@@ -1,6 +1,8 @@
 ---
 import { Image } from 'astro:assets'
-import decorImage from '../assets/images/winter-lake.jpg'
+import lakeImage from '../assets/images/winter-lake.jpg'
+import ballImage from '../assets/images/winter-ball.jpg'
+import treesImage from '../assets/images/winter-trees.jpg'
 import heroImage from '../assets/images/winter-wonderland.jpg'
 ---
 
@@ -20,14 +22,21 @@ import heroImage from '../assets/images/winter-wonderland.jpg'
         <a href="#prosjekter" class="button secondary" data-cursor-invert="" data-cursor-big="">Se prosjekter</a>
       </div>
     </div>
-    <div class="column">
-      <Image src={decorImage} alt="Dekorativt: hytte ved en dam på vinteren" height={350} />
+    <div class="column grid">
+      <div class="row">
+        <Image src={treesImage} alt="Dekorativt: frossent landskap med snødekte trær" class="trees" height={181} width={152} />
+        <Image src={lakeImage} alt="Dekorativt: frossent landskap med innsjø" class="lake" width={298} height={102} />
+      </div>
+      <div class="row">
+        <Image src={ballImage} alt="Dekorativt: frossen isboble" class="ball" width={124} height={120} />
+      </div>
+    </div>
   </div>
 </div>
 
 <style>
   .container > img {
-    height: 28rem;
+    height: 26rem;
     width: 100%;
     object-fit: cover;
     border-radius: var(--br-lg);
@@ -35,7 +44,7 @@ import heroImage from '../assets/images/winter-wonderland.jpg'
   }
 
   .content {
-    margin-top: 3rem;
+    margin-top: 6rem;
     margin-bottom: 3rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -105,11 +114,24 @@ import heroImage from '../assets/images/winter-wonderland.jpg'
     outline-color: orange;
     background-color: #eee;
   }
-  .column img {
-    max-height: 350px;
+  .grid .row {
     width: 100%;
+    display: flex;
+    gap: .75rem;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .grid img {
     object-fit: cover;
-    border-radius: 2rem;
+  }
+  .grid .trees,
+  .grid .lake {
+    border-radius: .75rem 2rem;
+  }
+  .grid .ball {
+    margin-top: 0.75rem;
+    transform: translateX(-60%);
+    border-radius: 2rem .75rem .75rem .75rem ;
   }
 
   @keyframes fade-in {
