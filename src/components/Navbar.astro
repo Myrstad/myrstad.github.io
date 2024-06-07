@@ -4,7 +4,7 @@
 <div class="container navigation">
   <div class="content">
     <a class="logo" href="/" data-cursor-big="">
-      <img src="/favicon.svg" alt="m logo">
+      <img src="/favicon.pride.svg" alt="m logo">
       Myrstad
     </a>
     <input type="checkbox" id="navigation-toggle" aria-controls="navigation" aria-label="Åpne/lukke navigasjon">
@@ -32,6 +32,7 @@
     left: 0;
     right: 0;
     top: 0;
+    pointer-events: none;
 
     --color-background-blur: rgba(255, 255, 255, 0.65);
   }
@@ -45,6 +46,7 @@
   }
 
   .logo {
+    pointer-events: auto;
     position: relative;
     padding: 0.5rem 1.75rem;
     border-radius: 1.25rem;
@@ -90,6 +92,7 @@
   }
 
   label {
+    pointer-events: auto;
     position: relative;
     width: 2.5rem;
     height: 2.5rem;
@@ -138,6 +141,7 @@
   }
 
   .menu {
+    pointer-events: auto;
     position: fixed;
     z-index: -2;
     display: flex;
@@ -243,6 +247,7 @@
   const navLinks = document.querySelectorAll(".menu a") as NodeListOf<HTMLAnchorElement>;
   const checkbox = document.querySelector("#navigation-toggle") as HTMLInputElement;
   const body = document.querySelector("body"); 
+  const menu = document.querySelector(".menu") as HTMLElement;
 
   checkbox.addEventListener('change', ()=>{
     if (checkbox.checked) {
@@ -267,5 +272,16 @@
         link.tabIndex = -1
       })
     })
+  });
+
+  menu.addEventListener('focusout', (event) => {
+    // Check if the focus has moved outside of the .menu element
+    if (!menu.contains(event.relatedTarget as Node)) {
+      body?.classList.remove("no-scroll");
+      checkbox.checked = false;
+      navLinks.forEach(link => {
+        link.tabIndex = -1;
+      });
+    }
   });
 </script>
