@@ -141,36 +141,33 @@
   }
 
   .menu {
-    pointer-events: auto;
+    pointer-events: none;
     position: fixed;
     z-index: -2;
-    display: flex;
-    align-items: center;
-    top: 0;
-    bottom: 0;
-    transform-origin: top;
-    padding-top: var(--side-padding);
-    padding-bottom: var(--side-padding);
-    transform: scale(1, 0);
-    left: 0;
-    right: 0;
-    background-color: var(--clr-primary-50, #fff);
-    transition: transform 500ms;
-    overflow: scroll;
+    display: block;
+    inset: 0;
+    padding-inline: var(--side-padding);
+    padding-top: 4rem;
+    background-color: transparent;
+    overflow-y: hidden;
+    background-color: hsla(214, 44%, 93%, 0);
+    backdrop-filter: blur(0rem);
+    transition: background-color 1s ease, backdrop-filter 1s ease;
   }
   
   .menu ul {
-    padding: 0 var(--side-padding);
-    margin: 0 auto;
-    padding-top: 4rem;
-    display: flex;
+    display: block;
     width: 100%;
+    height: fit-content;
+    padding: 0;
+    margin: 0;
 		max-width: calc(var(--max-width) + 2 * var(--side-padding));
     flex-direction: column;
     transition: transform 500ms 500ms, opacity 250ms;
     transform: translateX(-4rem);
     opacity: 0;  
     list-style: none;
+    overflow-x: hidden;
   }
 
   .menu a {
@@ -184,23 +181,30 @@
     font-weight: 200;
     text-transform: uppercase;
     white-space: nowrap;
+    transform: translateX(-1.3125em);
+    transition: transform 500ms ease-out;
   }
 
-  .menu a:hover {
-    color: blue;
-  }
-
-  
-  .menu a:hover::before,
-  .menu a:focus-visible::before {
+  .menu a::before {
     content: '-->';
+  }
+
+  .menu a:hover,
+  .menu a:focus {
+    color: blue;
+    transform: translateX(0em);
+  }
+  .menu a:focus-visible {
+    background-color: white;
+    outline-color: transparent !important;
+    border-radius: 1rem;
   }
   
   #navigation-toggle:checked ~ .menu {
-    transition: transform 500ms;
-    transform: scale(1, 1);
-    /* padding-top: 5rem;
-    padding-bottom: 1rem; */
+    overflow-y: auto;
+    pointer-events: auto;
+    background-color: hsla(214, 44%, 93%, 0.8);
+    backdrop-filter: blur(0.5rem);
   }
 
   #navigation-toggle:checked ~ .menu ul {
@@ -225,15 +229,18 @@
       top: unset;
       bottom: 0;
     }
-    
+
     .menu {
-      transform-origin: bottom;
-      align-items: flex-end;
+      padding-bottom: 4rem;
+      padding-top: var(--side-padding);
     }
 
     .menu ul {
-      padding-top: unset;
-      padding-bottom: 3rem;
+      position: absolute;
+      width: unset;
+      bottom: 4rem;
+      max-height: calc(100vh - 4rem);
+      min-width: fit-content;
     }
 
     .menu a {
