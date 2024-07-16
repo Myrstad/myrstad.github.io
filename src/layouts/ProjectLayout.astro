@@ -1,0 +1,229 @@
+---
+import ButtonLink from "../components/ButtonLink.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+interface Frontmatter {
+  title: string;
+  description: string;
+  image: {
+    src: any;
+    alt: string;
+  }
+  projectLink: {
+    href: string;
+    text: string;
+  }
+  githubLink: {
+    href: string;
+    text: string;
+  }
+}
+
+interface Props {
+  frontmatter: Frontmatter;
+}
+
+const { frontmatter } = Astro.props;
+
+---
+
+<BaseLayout title={frontmatter.title +" | Morten Myrstad"} description={frontmatter.description}>
+  <section class="hero">
+    <div class="container">
+      <div class="text">
+        <h1>Myrstad Bloggen</h1>
+        <p>
+          Dette var årets sommerprosjekt, bygget med Astro, hvorfor ikke bruke sommeren til å lage en blogg? Og hvorfor ikke sjekke den ut?
+        </p>
+        <div class="buttons">
+          <ButtonLink href={frontmatter.projectLink.href} type="primary">{frontmatter.projectLink.text}</ButtonLink>
+          <ButtonLink href="https://github.com/Myrstad/myrstad-bloggen" type="secondary">Kildekode --&gt;</ButtonLink>
+        </div>
+      </div>
+      <div class="image">
+        <slot name="image"></slot>
+        <!-- <Image src={ frontmatter.image.src } width={1205} height={652} quality={100} alt={"Logo til myrstadbloggen"} transition:name={"/prosjekt/myrstad-bloggen"} /> -->
+      </div>
+    </div>
+  </section>
+  <main>
+    <div class="container">
+      <slot name="main"></slot>
+      <div class="buttons">
+        <ButtonLink href="/" type="secondary">
+          &lt;-- Gå tilbake
+        </ButtonLink>  
+        <ButtonLink href={frontmatter.projectLink.href} type="primary">
+          {frontmatter.projectLink.text}
+        </ButtonLink>  
+        <ButtonLink href={frontmatter.githubLink.href} type="secondary">
+          {frontmatter.githubLink.text}
+        </ButtonLink>  
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style is:global>
+  .hero {
+    background-image: linear-gradient(var(--clr-primary-200), var(--clr-primary-50));
+    border-radius: 0 0 var(--br-lg) var(--br-lg);
+  }
+
+  .hero .container {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 2rem;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .text h1 {
+    margin: 0;
+    margin-top: 1.5rem;
+    font-size: 6rem;
+    line-height: 100%;
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+
+  .text p {
+    margin: 0;
+    margin-top: 0.5rem;
+    line-height: 150%;
+    font-size: 1.25rem;
+  }
+
+  .text .buttons {
+    margin-top: 4.3125rem;
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--br-lg);
+  }
+
+  main {
+    max-width: 56rem;
+    margin: auto;
+  }
+
+  main h2 {
+    margin: 0;
+    margin-top: 4rem;
+    font-size: 4rem;
+    line-height: 110%;
+    font-weight: normal;
+  }
+
+  main h3 {
+    margin: 0;
+    margin-top: 2.25rem;
+    font-size: 2.5rem;
+    line-height: 120%;
+    font-weight: normal;
+  }
+
+  main p {
+    margin: 0;
+    margin-top: 0.5rem;
+    font-size: 1.25rem;
+    line-height: 150%;
+  }
+
+  main p + p {
+    margin-top: 1.5rem;
+  }
+
+  main img {
+    width: 100%;
+    height: auto;
+    border-radius: 1.5rem;
+    margin-top: 3.25rem;
+  }
+
+  main img + * {
+    font-size: 1rem;
+    line-height: 150%;
+    margin: 1rem 2rem;
+    margin-bottom: 0;
+  }
+
+  main .buttons {
+    margin-top: 4.3125rem;
+    margin-bottom: 4rem;
+    display: flex;
+    gap: 1.25rem;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 800px) {
+    main .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem !important;
+    }
+
+    main .buttons .button {
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 1500px) {
+    .hero .container {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 2rem;
+      padding-top: 6rem;
+    }
+    
+    .text {
+      grid-row-start: 1;
+      grid-row-end: 2;
+      max-width: 50ch;
+      margin: 0 auto;
+    }
+    
+    .text h1 {
+      font-size: 5rem;
+    }
+    
+    .text .buttons {
+      margin-top: 2rem;
+    }
+    
+    /* .image {
+      grid-row-start: 0;
+      } */
+      
+      .image img {
+        max-width: 47rem;
+        margin: 0 auto;
+      }
+    }
+    @media screen and (max-width: 500px) {
+      .hero .container {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem !important;
+      }
+
+      .text h1 {
+        font-size: 4rem;
+      }
+    }
+    </style>

@@ -44,52 +44,60 @@
 </style>
 
 <script>
-  const cursorElement = document.querySelector(".cursor") as HTMLElement;
-  let cursorX = window.innerWidth  / 2
-  let cursorY = window.innerHeight / 2
-  let ballX = window.innerWidth  / 2
-  let ballY = window.innerHeight / 2
-
-  let speed = 5
-  let deltaTime = 0
-  let prevTime = performance.now()
-
-  function animate(){
-    let distX = cursorX - ballX;
-    let distY = cursorY - ballY;
+  function init() {
+    const cursorElement = document.querySelector(".cursor") as HTMLElement;
+    let cursorX = window.innerWidth  / 2
+    let cursorY = window.innerHeight / 2
+    let ballX = window.innerWidth  / 2
+    let ballY = window.innerHeight / 2
+  
+    let speed = 5
+    let deltaTime = 0
+    let prevTime = performance.now()
+  
+    function animate(){
+      let distX = cursorX - ballX;
+      let distY = cursorY - ballY;
+      
+      deltaTime = (performance.now() - prevTime) / 1000 //ms
+      ballX = ballX + (distX * speed * deltaTime);
+      ballY = ballY + (distY * speed * deltaTime);
+  
+      //
+      let bodyWidth = document.body.offsetWidth;
+      let bodyHeight = document.body.offsetHeight;
+      if (ballX < 0) ballX = 0;
+      if (ballX > bodyWidth) ballX = bodyWidth;
+      if (ballY < 0) ballY = 0;
+      if (ballY > bodyHeight) ballY = bodyHeight;
+  
+      cursorElement.style.left = ballX + "px";
+      cursorElement.style.top = ballY + "px";
+      prevTime = performance.now()
+      requestAnimationFrame(animate);
+    }
+    animate()
+  
     
-    deltaTime = (performance.now() - prevTime) / 1000 //ms
-    ballX = ballX + (distX * speed * deltaTime);
-    ballY = ballY + (distY * speed * deltaTime);
-
-    //
-    let bodyWidth = document.body.offsetWidth;
-    let bodyHeight = document.body.offsetHeight;
-    if (ballX < 0) ballX = 0;
-    if (ballX > bodyWidth) ballX = bodyWidth;
-    if (ballY < 0) ballY = 0;
-    if (ballY > bodyHeight) ballY = bodyHeight;
-
-    cursorElement.style.left = ballX + "px";
-    cursorElement.style.top = ballY + "px";
-    prevTime = performance.now()
-    requestAnimationFrame(animate);
+    document.addEventListener("mousemove", e=>{
+      cursorX = e.pageX
+      cursorY = e.pageY
+      let hoverTarget = e.target as HTMLElement
+      if (hoverTarget.hasAttribute('data-cursor-big') || hoverTarget.parentElement?.hasAttribute('data-cursor-big')) {
+        cursorElement.classList.add("big")
+      } else {
+        cursorElement.classList.remove("big")
+      }
+      if (hoverTarget.hasAttribute('data-cursor-invert') || hoverTarget.parentElement?.hasAttribute('data-cursor-invert')) {
+        cursorElement.classList.add("invert")
+      } else {
+        cursorElement.classList.remove("invert")
+      }
+    })
   }
-  animate()
 
-  document.addEventListener("mousemove", e=>{
-    cursorX = e.pageX
-    cursorY = e.pageY
-    let hoverTarget = e.target as HTMLElement
-    if (hoverTarget.hasAttribute('data-cursor-big') || hoverTarget.parentElement?.hasAttribute('data-cursor-big')) {
-      cursorElement.classList.add("big")
-    } else {
-      cursorElement.classList.remove("big")
-    }
-    if (hoverTarget.hasAttribute('data-cursor-invert') || hoverTarget.parentElement?.hasAttribute('data-cursor-invert')) {
-      cursorElement.classList.add("invert")
-    } else {
-      cursorElement.classList.remove("invert")
-    }
+  init()
+  document.addEventListener('astro:after-swap', () => {
+    init()
   })
 </script>

@@ -39,4 +39,9 @@
 <script>
   const yearElement = document.getElementById("copyright-year") as HTMLSpanElement
   yearElement.innerText = new Date().getFullYear().toString()
+  
+  document.addEventListener('astro:after-swap', () => {
+    const yearElement = document.getElementById("copyright-year") as HTMLSpanElement
+    yearElement.innerText = new Date().getFullYear().toString()
+  })
 </script>

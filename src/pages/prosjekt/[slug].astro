@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('projects');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const { entry } = Astro.props;
+
+const { Content } = await entry.render();
+
+// 3. Use Layout...
+import ProjectLayout from "../../layouts/ProjectLayout.astro"
+---
+<ProjectLayout frontmatter={entry.data} >
+  <div slot="image">
+    <Image src={entry.data.image.src} alt={entry.data.image.alt} transition:name={`image-${entry.slug}`} />
+  </div>
+  <Content slot="main" />
+</ProjectLayout>

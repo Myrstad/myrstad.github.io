@@ -1,9 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 ---
 
-<Layout title="404 | Morten Myrstad" description="Oisann, her gikk noe galt.">
+<BaseLayout title="404 | Morten Myrstad" description="Oisann, her gikk noe galt.">
   <div class="container">
     <h1>Ooops!</h1>
     <p>Denne siden finnes vist ikke. Ta veldig gjerne kontakt om du mener noe er feil. Ellers ha en god dag videre 😊</p>
@@ -12,7 +12,7 @@ import Layout from "../layouts/Layout.astro";
       <a data-cursor-big="" data-cursor-invert="" href="mailto:post@mortenmyrstad.no">Send tilbakemelding</a>
     </div>
   </div>
-</Layout>
+</BaseLayout>
 
 <style>
   .container {

@@ -1,0 +1,46 @@
+---
+import Cursor from '../components/Cursor.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+import "../styles/global.css"
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="no">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+		<!-- SEO & SOCIALS -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#D7E3F4">
+		<meta property="og:locale" content="no_NO">
+		<meta property="og:url" content="http://mortenmyrstad.no/" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/images/website-socials.png" />
+		<meta name="twitter:card" content="summary_large_image"></meta>
+
+		<ViewTransitions />
+	</head>
+	<body>
+		<Cursor transition:persist></Cursor>
+		<Navbar transition:persist></Navbar>
+		<slot />
+		<Footer transition:persist></Footer>
+	</body>
+</html>

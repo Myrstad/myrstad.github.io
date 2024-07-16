@@ -10,17 +10,18 @@ interface Props {
 }
 
 const { style, image, title, href="#", alt} = Astro.props
+const slug = href.split("/")[href.split("/").length-1]
 ---
 
 <div class:list={["project", style]}>
   <div class="content">
     <a href={href} data-cursor-big="">
-      <h3>{title}</h3>
+      <h3 transition:name={`title-${slug}`}>{title}</h3>
     </a>
     <slot></slot>
   </div>
   <div class="image">
-    <Image src={image} alt={alt} width={1205} height={652} quality={100} />
+    <Image src={image} alt={alt} width={1205} height={652} quality={100} transition:name={`image-${slug}`} transition:animate={"none"} />
     <a href={href} class="button" data-cursor-big="">
       Se prosjektet -->
     </a>

@@ -1,0 +1,44 @@
+---
+interface Props {
+  type?: "primary" | "secondary";
+  href: string;
+}
+
+const {type = "primary", href} = Astro.props
+---
+
+<a class:list={[ "button", type ]} href={href} data-cursor-big="" data-cursor-invert="">
+  <slot>
+</a>
+
+<style>
+  .button {
+    display: inline-block;
+    font-size: 1.25rem;
+    line-height: 100%;
+    padding: 1em 2em;
+    text-decoration: none;
+    border-radius: 100vmax;
+  }
+  .button.primary {
+    background-color: black;
+    color: white;
+  }
+  .button.secondary {
+    color: black;
+    outline: 2px solid black;
+    outline-offset: -2px;
+  }
+  .button.secondary:focus-visible {
+    outline-color: orange;
+    background-color: #eee;
+  }
+
+  @media screen and (max-width: 500px) {
+    .button {
+      width: 100%;
+      text-align: center;
+      padding: 0.5em 2em;
+    }
+  }
+</style>
