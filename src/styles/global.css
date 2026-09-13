@@ -1,0 +1,19 @@
+* {
+    font-family: var(--font-body), serif;
+}
+
+html {
+    color-scheme: dark;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), serif;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 128px;
+    line-height: 90%;
+    letter-spacing: -2%;
+}
