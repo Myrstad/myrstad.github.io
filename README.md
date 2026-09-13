@@ -1,9 +1,6 @@
 # mortenmyrstad.no
 
-### En portefølje for å vise fram kunnskaper og prosjekter
+My personal website, showcasing projects and experience.
 
-Denne nettsiden er lagd for hånd, med kjærlighet, får å vise fram prosjekter og ferdighetene mine. Kontaktinformasjonen min finner du også på siden. Her er URLen [mortenmyrstad.no](https://mortenmyrstad.no/) :D
+### Preview
 
-### SOME-bilde
-
-![Sosiale medier "teaser"](/public/images/website-socials.png)
