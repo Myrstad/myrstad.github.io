@@ -1,4 +1,22 @@
 * {
+    --color-bg: #1A202C;
+    --color-bg-alt: #1A1D23;
+    --color-title: #FFFFFF;
+    --color-body: #CCCCCC;
+    --color-accent: #B99C7E;
+    --color-accent-dark: #755D41;
+    --color-accent-bg: #251500;
+    --color-green: #8CAC82;
+    --color-green-dark: #1E4014;
+    --color-green-bg: #041100;
+}
+
+::selection {
+    background-color: rgb(185 156 126 / 0.5);
+    color: var(--color-title);
+}
+
+* {
     font-family: var(--font-body), serif;
 }
 
@@ -6,14 +24,26 @@ html {
     color-scheme: dark;
 }
 
+body {
+    background-color: var(--color-bg);
+    margin: 0;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display), serif;
     text-transform: uppercase;
     font-weight: 400;
+    margin: 0;
 }
 
 h1 {
     font-size: 128px;
     line-height: 90%;
     letter-spacing: -2%;
+}
+
+.container {
+    max-width: 1343px;
+    padding: 0 3rem;
+    margin: 0 auto;
 }
