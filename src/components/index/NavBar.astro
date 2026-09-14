@@ -1,0 +1,61 @@
+---
+
+---
+
+<nav class="navbar container">
+    <div>
+        <a href="/">Morten Myrstad</a>
+        <div class="update">
+            <div class="circle"></div>
+            Open for work — Grimstad, NO
+        </div>
+    </div>
+    <a href="#contact">Get in touch!</a>
+</nav>
+
+<style>
+    nav {
+        height: 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.25rem;
+        line-height: 120%;
+
+        & div {
+            display: flex;
+            gap: 1.5rem;
+            letter-spacing: 2%;
+            align-items: center;
+
+            a {
+                text-decoration: none;
+                color: var(--color-title);
+            }
+
+            .update {
+                padding: 2px 4px;
+                outline: 1px solid var(--color-accent-dark);
+                color: var(--color-accent);
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                font-size: 16px;
+                line-height: 100%;
+
+                .circle {
+                    display: block;
+                    width: 10px;
+                    height: 10px;
+                    background-color: var(--color-green);
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+    }
+</style>

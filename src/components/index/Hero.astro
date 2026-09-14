@@ -1,0 +1,153 @@
+---
+import HeroSystemsImg from "../../assets/images/index/hero_system.png"
+import HeroPokemonImg from "../../assets/images/index/hero_pokemon.png"
+import HeroEyesImg from "../../assets/images/index/hero_eyes.png"
+import RightArrowSvg from "../../assets/svg/right-arrow.svg"
+import { Image } from 'astro:assets';
+---
+
+<section class="hero container">
+    <div class="row">
+        <h1>Building</h1>
+        <Image src={HeroSystemsImg} alt="test" loading="eager" />
+        <h1 style="color: var(--color-accent)">Systems</h1>
+    </div>
+    <div class="column">
+        <div class="row">
+            <h1>Designing</h1>
+        </div>
+        <div class="row flex-end">
+            <Image src={HeroPokemonImg} width={346} height={115} alt="test" loading="eager" />
+            <h1 style="color: var(--color-accent)">Interfaces</h1>
+        </div>
+    </div>
+    <div class="row last">
+        <h1>Leading</h1>
+        <h1 style="color: var(--color-accent)">Teams</h1>
+        <Image src={HeroEyesImg} width={346} height={115} alt="test" loading="eager" class="wide" />
+
+    </div>
+
+    <div class="links">
+        <div class="column">
+            <div class="text">
+                <h2>The Engineer</h2>
+                <p>Final year bachelors in data engineering, at University of Agder with a 4.48 GPA</p>
+            </div>
+            <a href="#projects">Technical work <RightArrowSvg /></a>
+        </div>
+        <div class="column">
+            <div class="text">
+                <h2>The Responsible</h2>
+                <p>President of Grimstad student sports club. Former fundraising team lead at Red Cross.</p>
+            </div>
+            <a href="#leadership">Leadership impact <RightArrowSvg /></a>
+        </div>
+        <div class="column">
+            <div class="text">
+                <h2>The Thinker</h2>
+                <p>Programming since middle school. Recently took up philosophy & photography.</p>
+            </div>
+            <a href="#about">My story <RightArrowSvg /></a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero {
+        container-type: inline-size;
+        margin: 4rem auto 0;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+
+        h1 {
+            font-size: clamp(4rem, 9.5cqw, 128px);
+        }
+
+        .row {
+            display: flex;
+            gap: clamp(2px, 1.5cqw, 10px);
+            background: var(--color-bg);
+
+            & img {
+                aspect-ratio: 193/115;
+                height: clamp(4rem, 9.5cqw, 115px);
+                width: auto;
+            }
+
+            & img.wide {
+                width: 346px;
+                aspect-ratio: 346/115;
+            }
+
+            &.last {
+                gap: 1rem;
+
+                h1 + h1 {
+                    padding-left: 1rem;
+                }
+            }
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+
+            .row {
+                display: flex;
+                align-items: flex-start;
+
+                img {
+                    margin-top: 1rem;
+                    width: 346px;
+                    aspect-ratio: 346/115;
+                }
+
+                &.flex-end {
+                    justify-content: flex-end;
+                }
+            }
+        }
+
+        .links {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-top: 6rem;
+
+            .column {
+                color: var(--color-body);
+                display: flex;
+                justify-content: space-between;
+
+
+                h2 {
+                    line-height: 100%;
+                    font-family: var(--font-body);
+                    text-transform: capitalize;
+                    font-style: italic;
+                    font-size: 2rem;
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 1.25rem;
+                    line-height: 120%;
+                    margin-bottom: 1rem;
+                }
+
+                a {
+                    text-decoration: none;
+                    font-size: 1.25rem;
+                    color: var(--color-title);
+                    outline: 1px solid var(--color-body);
+                    outline-offset: -0.5px;
+                    width: fit-content;
+                    padding: 4px 12px;
+                }
+            }
+        }
+    }
+
+</style>
