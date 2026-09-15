@@ -115,12 +115,12 @@ import { Image } from 'astro:assets';
             grid-template-columns: 1fr 1fr 1fr;
             gap: 2rem;
             margin-top: 6rem;
+            margin-bottom: 6rem;
 
             .column {
                 color: var(--color-body);
                 display: flex;
                 justify-content: space-between;
-
 
                 h2 {
                     line-height: 100%;
@@ -128,12 +128,12 @@ import { Image } from 'astro:assets';
                     text-transform: capitalize;
                     font-style: italic;
                     font-size: 2rem;
+                    margin-bottom: 4px;
                 }
 
                 p {
                     margin: 0;
                     font-size: 1.25rem;
-                    line-height: 120%;
                     margin-bottom: 1rem;
                 }
 
@@ -145,6 +145,10 @@ import { Image } from 'astro:assets';
                     outline-offset: -0.5px;
                     width: fit-content;
                     padding: 4px 12px;
+
+                    svg {
+                        fill: var(--color-title);
+                    }
                 }
             }
         }

@@ -3,13 +3,59 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import NavBar from "../components/index/NavBar.astro";
 import Hero from "../components/index/Hero.astro";
-
+import ProjectShowcase from "../components/index/ProjectShowcase.astro";
+import lievitoSmall from "../assets/images/index/lievito_small.png"
+import lievitoMain from "../assets/images/index/lievito_main.png"
+import lievitoSecondary from "../assets/images/index/lievito_secondary.png"
+import rouxSmall from "../assets/images/index/roux_small.png"
+import rouxMain from "../assets/images/index/roux_main.png"
+import rouxSecondary from "../assets/images/index/roux_secondary.png"
 ---
 
 <BaseLayout>
 	<NavBar></NavBar>
 	<Hero></Hero>
-
+	<div class="projects" id="projects">
+		<ProjectShowcase
+			title="Lievito"
+			description="Learning sourdough baking can be daunting and lonely. Lievito is an Android application with tools and social media aspects to fall in love with baking."
+			tags={["Kotlin", "Android CLEAN Architecture", "Supabase", "Self hosted"]}
+			imageMain={{meta: lievitoMain, alt: "Notification flow diagram"}}
+			imageSmall={{meta: lievitoSmall, alt: "Mascot of application, a cute sourdough"}}
+			imageSecondary={{meta: lievitoSecondary, alt: "Screenshots of onboarding"}}
+			colors={{
+				background: "var(--color-accent-bg)",
+				accent: "var(--color-accent)",
+				accentDark: "var(--color-accent-dark)",
+			}}
+			primary={{
+				text: "Source Code",
+				href: "https://github.com/Lievito-sourdough/lievito",
+			}}
+		/>
+		<ProjectShowcase
+			title="Rouxtrainer"
+			description="Learning speed-cubing algorithms is hard, but necessary for improvement.  Rouxtrainer is based on spaced repetition, to improve quickly and efficiently."
+			tags={["Fullstack", "Express", "Astro", "Svelte", "Postgres", "Dockerized"]}
+			imageMain={{meta: rouxMain, alt: "Hero of application"}}
+			imageSmall={{meta: rouxSmall, alt: "A Rubik's cube after CMLL"}}
+			imageSecondary={{meta: rouxSecondary, alt: "Design system of application"}}
+			colors={{
+				background: "var(--color-green-bg)",
+				accent: "var(--color-green)",
+				accentDark: "var(--color-green-dark)",
+			}}
+			primary={{
+				text: "Source Code",
+				href: "https://github.com/Lievito-sourdough/lievito",
+				external: true
+			}}
+			secondary={{
+				text: "Case study",
+				href: "https://github.com/Lievito-sourdough/lievito",
+			}}
+		/>
+	</div>
 </BaseLayout>
 
 <style is:inline>
