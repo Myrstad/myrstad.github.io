@@ -12,7 +12,7 @@
 }
 
 ::selection {
-    background-color: rgb(185 156 126 / 0.5);
+    background-color: rgb(185 126 142 / 0.5);
     color: var(--color-title);
 }
 

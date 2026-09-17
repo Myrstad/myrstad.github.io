@@ -1,0 +1,184 @@
+---
+import SelfieImg from "../../assets/images/index/about_photo.png"
+import RouxImg from "../../assets/images/index/about_roux.png"
+import QuoteSvg from "../../assets/svg/quote.svg"
+import HandballSvg from "../../assets/svg/handball.svg"
+
+import { Image } from "astro:assets"
+---
+
+<section class="about">
+    <div class="container">
+        <h2>Me, Myself, and I</h2>
+
+        <div class="grid">
+            <div class="photo">
+                <Image src={SelfieImg} alt="Selfie of me smiling with my camera" />
+                <h3>PHOTO</h3>
+                <p>
+                    I enjoy photography with my <br>
+                    SONY A3000 camera
+                </p>
+            </div>
+            <div class="cubing">
+                <Image src={RouxImg} alt="A detection of the ROUX method for the Rubik's cube" />
+                <h3>SPEEDCUBER</h3>
+                <p>
+                    Sub 40 seconds <br>
+                    with the ROUX method
+                </p>
+            </div>
+            <div class="philosophy">
+                <div class="header">
+                    <QuoteSvg />
+                    <h3>PHILOSOPHY</h3>
+                </div>
+                <p>
+                    Philosophy is truly fascinating. Because there are so many things to think about. That have already been thought of. That reading a new book brings new perspective, even when you know the contents. Therefore thinking about thinking, is the greatest tool of all.
+                </p>
+            </div>
+            <div class="handball">
+                <HandballSvg />
+                <h3>HANDBALL</h3>
+                <p>
+                    Played since 10 years old. <br>
+                    Participated at senior Norwegian Championship at age 16. <br>
+                    Currently a goalie at GSI.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        background-color: var(--color-bg-alt);
+        padding-top: 78px;
+        padding-bottom: 95px;
+
+        h2 {
+            font-size: 4rem;
+            letter-spacing: -2%;
+            line-height: 90%;
+            margin-bottom: 54px;
+        }
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(2, minmax(326px, 1fr));
+        gap: 2rem;
+
+        > * {
+            border-radius: 4px;
+            position: relative;
+
+            h3 {
+                font-size: 2rem;
+                font-family: inherit;
+                font-style: italic;
+                letter-spacing: -2%;
+                margin-top: 40px;
+                line-height: 100%;
+            }
+
+            p {
+                font-size: 1.25rem;
+                line-height: 150%;
+                margin: 0;
+            }
+        }
+
+        .photo {
+            grid-column: span 4;
+            background-color: var(--color-accent);
+            color: var(--color-accent-bg);
+
+            text-align: right;
+            padding-right: 40px;
+
+            img {
+                position: absolute;
+                inset: 0;
+                height: 100%;
+                width: auto;
+                opacity: 0.75;
+                pointer-events: none;
+            }
+        }
+
+        .cubing {
+            grid-column: span 2;
+            background-color: var(--color-green);
+            color: var(--color-green-bg);
+
+            padding-left: 40px;
+
+            img {
+                position: absolute;
+                right: 13px;
+                bottom: 26px;
+                width: 189px;
+                height: auto;
+                opacity: 0.2;
+                pointer-events: none;
+            }
+        }
+
+        .philosophy {
+            grid-column: span 3;
+            background-color: var(--color-green-bg);
+            color: var(--color-body);
+
+            padding-inline: 40px;
+
+            .header {
+                margin-top: 40px;
+                padding-left: 40px;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+
+                h3 {
+                    margin-top: 0;
+                    color: var(--color-green);
+                }
+            }
+        }
+
+        .handball {
+            grid-column: span 3;
+            background-color: var(--color-accent-bg);
+            color: var(--color-accent);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h3 {
+                margin-top: 67px;
+                z-index: 2;
+            }
+
+            p {
+                padding-top: 1.5rem;
+                text-align: center;
+                z-index: 2;
+            }
+
+            svg {
+                position: absolute;
+                z-index: 1;
+                right: 30px;
+                top: 10px;
+                bottom: 10px;
+            }
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
