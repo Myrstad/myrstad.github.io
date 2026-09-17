@@ -10,12 +10,13 @@ import lievitoSecondary from "../assets/images/index/lievito_secondary.png"
 import rouxSmall from "../assets/images/index/roux_small.png"
 import rouxMain from "../assets/images/index/roux_main.png"
 import rouxSecondary from "../assets/images/index/roux_secondary.png"
+import Leadership from "../components/index/Leadership.astro";
 ---
 
 <BaseLayout>
 	<NavBar></NavBar>
 	<Hero></Hero>
-	<div class="projects" id="projects">
+	<section class="projects" id="projects">
 		<ProjectShowcase
 			title="Lievito"
 			description="Learning sourdough baking can be daunting and lonely. Lievito is an Android application with tools and social media aspects to fall in love with baking."
@@ -55,7 +56,8 @@ import rouxSecondary from "../assets/images/index/roux_secondary.png"
 				href: "https://github.com/Lievito-sourdough/lievito",
 			}}
 		/>
-	</div>
+	</section>
+	<Leadership></Leadership>
 </BaseLayout>
 
 <style is:inline>
