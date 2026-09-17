@@ -1,0 +1,68 @@
+---
+
+---
+
+<section class="footer container">
+    <div class="decor">
+        <p>morten</p>
+        <p>myrstad</p>
+    </div>
+    <div class="links" id="contact">
+        <p>Get in touch!</p>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/mmyrstad/" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/Myrstad" target="_blank">GitHub</a></li>
+            <li><a href="mailto:post@mortenmyrstad.no" target="_blank">Email</a></li>
+        </ul>
+    </div>
+</section>
+
+<style>
+    .footer {
+        margin-top: 164px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .decor {
+        font-size: 224px;
+        line-height: 90%;
+        letter-spacing: -2%;
+        display: flex;
+        flex-direction: column;
+        height: 284px;
+
+        p {
+            font-family: var(--font-display);
+            margin: 0;
+            text-transform: uppercase;
+        }
+    }
+
+    .decor p:nth-child(1) {
+        color: var(--color-accent);
+        opacity: 0.5;
+    }
+
+    .decor p:nth-child(2) {
+        transform: translateY(-120px);
+    }
+
+    .links {
+        line-height: 150%;
+
+        p {
+            color: var(--color-title);
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+            color: var(--color-accent);
+        }
+
+        a {
+            color: inherit;
+        }
+    }
+</style>
