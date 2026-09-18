@@ -11,8 +11,8 @@ import { Image } from "astro:assets"
     <div class="intro">
         <div>
             <StarSVG />
+            <h2>Leadership</h2>
         </div>
-        <h2>Leadership</h2>
         <p>
             Being a leader is taking responsibility. Taking initiative.
             Being the one who tries—not for himself—but so others can thrive.
@@ -70,10 +70,12 @@ import { Image } from "astro:assets"
     }
 
     .intro {
-        width: 33%;
+        max-width: 427px;
 
         div {
-            display: grid;
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
             place-items: center;
             margin-bottom: 4px;
         }
@@ -91,6 +93,10 @@ import { Image } from "astro:assets"
             position: relative;
             width: fit-content;
 
+            @media (max-width: 750px) {
+                font-size: 3rem;
+            }
+
             &::after {
                 content: "";
                 position: absolute;
@@ -104,6 +110,10 @@ import { Image } from "astro:assets"
         p {
             font-size: 1.25rem;
             color: var(--color-body);
+
+            @media (max-width: 750px) {
+                font-size: 1rem;
+            }
         }
     }
 
@@ -112,6 +122,10 @@ import { Image } from "astro:assets"
         gap: 2rem;
         position: relative;
         margin-top: 77px;
+
+        @media (max-width: 750px) {
+            flex-direction: column;
+        }
 
         &::before, &::after {
             content: "";
@@ -139,6 +153,10 @@ import { Image } from "astro:assets"
             flex-direction: column;
             justify-content: space-between;
             padding-bottom: 1rem;
+
+            @media (max-width: 750px) {
+                min-height: 307px;
+            }
         }
         
         >:nth-child(1)::after,
@@ -151,6 +169,14 @@ import { Image } from "astro:assets"
             top: 0;
             bottom: 0;
             right: -16px;
+
+            @media (max-width: 750px) {
+                top: unset;
+                left: 0;
+                right: 0;
+                width: unset;
+                height: 1px;
+            }
         }
 
         h3 {
@@ -160,6 +186,10 @@ import { Image } from "astro:assets"
             font-size: 40px;
             letter-spacing: -2%;
             line-height: 100%;
+
+            @media (max-width: 1200px) {
+                font-size: 2rem;
+            }
         }
 
         .title p {
@@ -170,6 +200,10 @@ import { Image } from "astro:assets"
             color: var(--color-accent);
             margin: 0;
             padding-top: 4px;
+
+            @media (max-width: 1200px) {
+                font-size: 1.25rem;
+            }
         }
 
         img {
@@ -178,12 +212,22 @@ import { Image } from "astro:assets"
             width: auto;
             margin-top: auto;
             border-radius: 4px;
+
+            @media (max-width: 750px) {
+                float: right;
+                height: 62px;
+            }
         }
 
-        .card > p {
+        .text > p {
             font-size: 1.25rem;
             line-height: 120%;
             color: var(--color-body);
+            padding-bottom: 2rem;
+
+            @media (max-width: 1200px) {
+                font-size: 1rem;
+            }
         }
 
     }

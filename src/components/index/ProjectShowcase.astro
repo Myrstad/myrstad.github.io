@@ -71,10 +71,9 @@ const { title, primary, secondary, colors, imageSmall, imageSecondary, imageMain
                     </a>
                 }
             </div>
-
-            <div class="decor">
-                <StarSvg fill={colors.accentDark}></StarSvg>
-            </div>
+        </div>
+        <div class="decor">
+            <StarSvg fill={colors.accentDark}></StarSvg>
         </div>
     </div>
 </section>
@@ -87,6 +86,16 @@ const { title, primary, secondary, colors, imageSmall, imageSecondary, imageMain
         padding-top: 2rem;
         padding-bottom: 2rem;
         min-height: 810px;
+        position: relative;
+
+        @media (max-width: 1200px) {
+            min-height: 700px;
+        }
+
+        @media (max-width: 900px) {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
 
         >:nth-child(1) {
             display: flex;
@@ -98,35 +107,61 @@ const { title, primary, secondary, colors, imageSmall, imageSecondary, imageMain
                 gap: 2rem;
                 grid-template-columns: repeat(6, 1fr);
                 grid-template-rows: auto auto;
+
+                @media (max-width: 900px) {
+                    grid-template-columns: 2fr 1fr;
+                    grid-template-rows: auto;
+                    margin-top: 22px;
+                    align-items: end;
+                    gap: 1rem;
+                }
             }
 
             .images .small {
                 grid-column: 4/7;
                 aspect-ratio: 312/273;
+
+                @media (max-width: 900px) {
+                    grid-column: 2/3;
+                    grid-row: 1;
+                }
             }
 
             .images .secondary {
                 grid-column: 1/7;
                 aspect-ratio: 637/364;
 
+                @media (max-width: 900px) {
+                    grid-column: 1/2;
+                }
             }
         }
 
         >:nth-child(2) {
             color: var(--color-title);
-            position: relative;
+
+            @media (max-width: 900px) {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+
+                * {
+                    grid-column: span 2;
+                }
+
+                img {
+                    grid-column: 2/3;
+                }
+            }
 
             p {
                 margin-top: 2rem;
                 font-size: 1.25rem;
                 line-height: 150%;
-            }
 
-            .decor {
-                height: 30px;
-                position: absolute;
-                right: 0;
-                bottom: 0;
+                @media (max-width: 900px) {
+                    margin-top: 1.5rem;
+                    font-size: 1rem;
+                }
             }
 
             .buttons {
@@ -149,6 +184,10 @@ const { title, primary, secondary, colors, imageSmall, imageSecondary, imageMain
                 padding: 4px 12px;
                 text-decoration: none;
 
+                @media (max-width: 900px) {
+                    font-size: 1rem;
+                }
+
                 &.primary {
                     background-color: var(--color-body);
                     color: var(--color-bg);
@@ -169,9 +208,37 @@ const { title, primary, secondary, colors, imageSmall, imageSecondary, imageMain
         }
     }
 
+    .decor {
+        height: 30px;
+        position: absolute;
+        right: 3rem;
+        bottom: 2rem;
+
+        z-index: 0;
+
+        @media (max-width: 900px) {
+            bottom: unset;
+            top: 2.5rem;
+        }
+
+        @media (max-width: 750px) {
+            right: 2rem;
+        }
+
+        @media (max-width: 500px) {
+            right: 1rem;
+        }
+
+    }
+
     h2 {
+        z-index: 1;
         font-size: 4rem;
         line-height: 90%;
+
+        @media (max-width: 750px) {
+            font-size: 3rem;
+        }
     }
 
     img {
@@ -186,6 +253,10 @@ const { title, primary, secondary, colors, imageSmall, imageSecondary, imageMain
         color: var(--color-body);
         list-style: none;
         padding: 0;
+
+        @media (max-width: 900px) {
+            justify-content: center;
+        }
 
         > li {
             padding: 1px;

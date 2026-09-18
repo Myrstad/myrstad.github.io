@@ -3,59 +3,69 @@
 ---
 
 <nav class="navbar container">
-    <div>
-        <a href="/">Morten Myrstad</a>
-        <div class="update">
-            <div class="circle"></div>
-            Open for work — Grimstad, NO
-        </div>
+    <a href="/">Morten Myrstad</a>
+    <div class="update">
+        <div class="circle"></div>
+        Open for work — Grimstad, NO
     </div>
-    <a href="#contact">Get in touch!</a>
+    <a class="contact" href="#contact">Get in touch!</a>
 </nav>
 
 <style>
     nav {
         height: 4rem;
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: auto auto 1fr;
         align-items: center;
         font-size: 1.25rem;
         line-height: 120%;
+        letter-spacing: 2%;
 
-        & div {
-            display: flex;
-            gap: 1.5rem;
-            letter-spacing: 2%;
-            align-items: center;
-
-            a {
-                text-decoration: none;
-                color: var(--color-title);
-            }
-
-            .update {
-                padding: 2px 4px;
-                outline: 1px solid var(--color-accent-dark);
-                color: var(--color-accent);
-                display: flex;
-                align-items: center;
-                gap: 4px;
-                font-size: 16px;
-                line-height: 100%;
-
-                .circle {
-                    display: block;
-                    width: 10px;
-                    height: 10px;
-                    background-color: var(--color-green);
-                    border-radius: 50%;
-                }
-            }
+        @media (max-width: 750px) {
+            font-size: 1rem;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            grid-row-gap: 11px;
+            margin-top: 1rem;
+            height: auto;
         }
 
         a {
-            color: var(--color-accent);
             text-decoration: none;
+            color: var(--color-title);
+        }
+
+        .update {
+            margin-left: 23px;
+            padding: 2px 4px;
+            outline: 1px solid var(--color-accent-dark);
+            color: var(--color-accent);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 16px;
+            line-height: 100%;
+            height: fit-content;
+
+            .circle {
+                display: block;
+                width: 10px;
+                height: 10px;
+                background-color: var(--color-green);
+                border-radius: 50%;
+            }
+
+            @media (max-width: 750px) {
+                grid-row: 2/3;
+                grid-column: span 2;
+                margin-left: 0;
+                justify-content: center;
+            }
+        }
+
+        .contact {
+            justify-self: end;
         }
     }
+
 </style>

@@ -67,8 +67,14 @@ import { Image } from "astro:assets"
     .grid {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: repeat(2, minmax(326px, 1fr));
+        grid-template-rows: repeat(2, minmax(326px, auto));
         gap: 2rem;
+
+        @media (max-width: 900) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto auto;
+            gap: 1rem;
+        }
 
         > * {
             border-radius: 4px;
@@ -81,12 +87,20 @@ import { Image } from "astro:assets"
                 letter-spacing: -2%;
                 margin-top: 40px;
                 line-height: 100%;
+
+                @media (max-width: 900) {
+                    font-size: 1.5rem;
+                }
             }
 
             p {
                 font-size: 1.25rem;
                 line-height: 150%;
                 margin: 0;
+
+                @media (max-width: 900) {
+                    font-size: 1rem;
+                }
             }
         }
 
@@ -94,9 +108,17 @@ import { Image } from "astro:assets"
             grid-column: span 4;
             background-color: var(--color-accent);
             color: var(--color-accent-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
 
             text-align: right;
             padding-right: 40px;
+
+            @media (max-width: 900) {
+                grid-column: span 1;
+                min-height: 139px;
+            }
 
             img {
                 position: absolute;
@@ -105,6 +127,13 @@ import { Image } from "astro:assets"
                 width: auto;
                 opacity: 0.75;
                 pointer-events: none;
+                z-index: 0;
+            }
+
+            img ~ * {
+                background-color: var(--color-accent);
+                z-index: 1;
+                width: fit-content;
             }
         }
 
@@ -114,6 +143,11 @@ import { Image } from "astro:assets"
             color: var(--color-green-bg);
 
             padding-left: 40px;
+
+            @media (max-width: 900) {
+                grid-column: span 1;
+                min-height: 204px;
+            }
 
             img {
                 position: absolute;
@@ -132,6 +166,15 @@ import { Image } from "astro:assets"
             color: var(--color-body);
 
             padding-inline: 40px;
+            padding-bottom: 40px;
+
+            @media (max-width: 900) {
+                grid-column: span 1;
+
+                svg {
+                    width: 59px;
+                }
+            }
 
             .header {
                 margin-top: 40px;
@@ -156,9 +199,19 @@ import { Image } from "astro:assets"
             flex-direction: column;
             align-items: center;
 
+            @media (max-width: 900) {
+                grid-column: span 1;
+                min-height: 201px;
+                padding: 20px;
+            }
+
             h3 {
                 margin-top: 67px;
                 z-index: 2;
+
+                @media (max-width: 900) {
+                    margin-top: 0;
+                }
             }
 
             p {
@@ -173,6 +226,8 @@ import { Image } from "astro:assets"
                 right: 30px;
                 top: 10px;
                 bottom: 10px;
+                height: 90%;
+                width: auto;
             }
         }
     }
