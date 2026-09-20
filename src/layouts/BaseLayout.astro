@@ -1,6 +1,13 @@
 ---
 import { Font } from "astro:assets"
 import "../styles/global.css"
+import SEO, {Props as SeoProps} from "@components/SEO.astro";
+
+interface Props extends SeoProps {
+
+}
+
+const { title, description, image, excludeRobots } = Astro.props as Props;
 ---
 
 <html lang="en">
@@ -10,7 +17,13 @@ import "../styles/global.css"
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>test</title>
+
+    <SEO
+        title = {title}
+        description = {description}
+        image = {image}
+        excludeRobots = {excludeRobots}
+    />
     <Font cssVariable="--font-display" preload />
     <Font cssVariable="--font-body" preload />
 </head>
