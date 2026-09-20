@@ -59,13 +59,13 @@ const { title, primary, secondary, colors, imageSmall, imageSecondary, imageMain
             <p>{description}</p>
             <div class="buttons">
                 { primary &&
-                    <a href={primary.href} class="primary">
+                    <a href={primary.href} target={primary.external ? "_blank" : "_self"} class="primary">
                         {primary.text}
                         {primary.external ? <ArrowExternalSvg/> : <ArrowRightSvg/>}
                     </a>
                 }
                 { secondary &&
-                    <a href={secondary.href} class="secondary">
+                    <a href={secondary.href} target={primary.external ? "_blank" : "_self"} class="secondary">
                         {secondary.text}
                         {secondary.external ? <ArrowExternalSvg/> : <ArrowRightSvg/>}
                     </a>
