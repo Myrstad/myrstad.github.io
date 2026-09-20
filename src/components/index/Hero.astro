@@ -4,6 +4,7 @@ import HeroPokemonImg from "../../assets/images/index/hero_pokemon.png"
 import HeroEyesImg from "../../assets/images/index/hero_eyes.png"
 import RightArrowSvg from "../../assets/svg/right-arrow.svg"
 import { Image } from 'astro:assets';
+import "../../styles/animation.css"
 ---
 
 <section class="hero container">
@@ -68,6 +69,9 @@ import { Image } from 'astro:assets';
             display: grid;
             grid-template-columns: auto auto auto;
             gap: clamp(2px, 1.5cqw, 10px);
+            opacity: 0;
+            animation: fly-up 601ms var(--anim-spring) forwards,
+                        fade-in 601ms ease-in forwards;
 
             img {
                 aspect-ratio: 193/115;
@@ -99,6 +103,9 @@ import { Image } from 'astro:assets';
         .second {
             display: grid;
             grid-template-columns: 1fr auto;
+            opacity: 0;
+            animation: fly-up 601ms 200ms var(--anim-spring) forwards,
+                        fade-in 601ms 200ms ease-in forwards;
 
             & h1:nth-child(1) {
                 grid-column: span 2;
@@ -135,6 +142,9 @@ import { Image } from 'astro:assets';
             display: grid;
             grid-template-columns: auto auto auto;
             gap: clamp(2px, 1.5cqw, 10px);
+            opacity: 0;
+            animation: fly-up 601ms 400ms var(--anim-spring) forwards,
+                        fade-in 601ms 400ms ease-in forwards;
 
             @media (max-width: 750px) {
                 grid-template-columns: 1fr auto;
@@ -180,6 +190,8 @@ import { Image } from 'astro:assets';
             gap: 2rem;
             margin-top: 6rem;
             margin-bottom: 6rem;
+            opacity: 0;
+            animation: fade-in 800ms 600ms ease-in forwards;
 
             @media (max-width: 750px) {
                 display: flex;
