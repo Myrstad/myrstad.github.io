@@ -1,16 +1,74 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import Projects from '../components/Projects.astro';
-import Experiences from '../components/Experiences.astro';
-import Skills from '../components/Skills.astro';
-import Contact from '../components/Contact.astro';
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import NavBar from "../components/index/NavBar.astro";
+import Hero from "../components/index/Hero.astro";
+import ProjectShowcase from "../components/index/ProjectShowcase.astro";
+import lievitoSmall from "../assets/images/index/lievito_small.png"
+import lievitoMain from "../assets/images/index/lievito_main.png"
+import lievitoSecondary from "../assets/images/index/lievito_secondary.png"
+import rouxSmall from "../assets/images/index/roux_small.png"
+import rouxMain from "../assets/images/index/roux_main.png"
+import rouxSecondary from "../assets/images/index/roux_secondary.png"
+import Leadership from "../components/index/Leadership.astro";
+import About from "../components/index/About.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<BaseLayout transition:animate={"none"} title="Morten Myrstad" description='Denne siden er lagd for hånd, med kjærlighet, får å vise fram mine prosjekter og ferdigheter. E-post finner du også.'>
+<BaseLayout
+	title="Morten Myrstad"
+	description="An engineer with great technical abilities, as well as being an social and reliable co-worker."
+>
+	<NavBar></NavBar>
 	<Hero></Hero>
-	<Projects></Projects>
-	<Experiences></Experiences>
-	<Skills></Skills>
-	<Contact></Contact>
+	<section class="projects" id="projects">
+		<ProjectShowcase
+			title="Lievito"
+			description="Learning sourdough baking can be daunting and lonely. Lievito is an Android application with tools and social media aspects to fall in love with baking."
+			tags={["Kotlin", "Android CLEAN Architecture", "Supabase", "Self hosted"]}
+			imageMain={{meta: lievitoMain, alt: "Notification flow diagram"}}
+			imageSmall={{meta: lievitoSmall, alt: "Mascot of application, a cute sourdough"}}
+			imageSecondary={{meta: lievitoSecondary, alt: "Screenshots of onboarding"}}
+			colors={{
+				background: "var(--color-accent-bg)",
+				accent: "var(--color-accent)",
+				accentDark: "var(--color-accent-dark)",
+			}}
+			primary={{
+				text: "Source Code",
+				href: "https://github.com/Lievito-sourdough/lievito",
+				external: true,
+			}}
+		/>
+		<ProjectShowcase
+			title="Rouxtrainer"
+			description="Learning speed-cubing algorithms is hard, but necessary for improvement.  Rouxtrainer is based on spaced repetition, to improve quickly and efficiently."
+			tags={["Fullstack", "Express", "Astro", "Svelte", "Postgres", "Dockerized"]}
+			imageMain={{meta: rouxMain, alt: "Hero of application"}}
+			imageSmall={{meta: rouxSmall, alt: "A Rubik's cube after CMLL"}}
+			imageSecondary={{meta: rouxSecondary, alt: "Design system of application"}}
+			colors={{
+				background: "var(--color-green-bg)",
+				accent: "var(--color-green)",
+				accentDark: "var(--color-green-dark)",
+			}}
+			primary={{
+				text: "Source Code",
+				href: "https://github.com/Myrstad/rouxtrainer",
+				external: true
+			}}
+			secondary={{
+				text: "Live site",
+				href: "https://rouxtrainer.com/",
+				external: true
+			}}
+		/>
+	</section>
+	<Leadership></Leadership>
+	<About></About>
+	<Footer></Footer>
 </BaseLayout>
+
+<style is:inline>
+
+</style>

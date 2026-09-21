@@ -1,0 +1,266 @@
+---
+import HeroSystemsImg from "../../assets/images/index/hero_system.png"
+import HeroPokemonImg from "../../assets/images/index/hero_pokemon.png"
+import HeroEyesImg from "../../assets/images/index/hero_eyes.png"
+import RightArrowSvg from "../../assets/svg/right-arrow.svg"
+import { Image } from 'astro:assets';
+import "../../styles/animation.css"
+---
+
+<section class="hero container">
+    <div class="first">
+        <h1>Building</h1>
+        <Image src={HeroSystemsImg} alt="test" loading="eager" />
+        <h1 style="color: var(--color-accent)">Systems</h1>
+    </div>
+    <div class="second">
+        <h1>Designing</h1>
+        <Image src={HeroPokemonImg} width={346} height={115} alt="test" loading="eager" />
+        <h1 style="color: var(--color-accent)">Interfaces</h1>
+    </div>
+    <div class="third">
+        <h1>Reliable</h1>
+        <h1 style="color: var(--color-accent)">Work</h1>
+        <Image src={HeroEyesImg} width={346} height={115} alt="test" loading="eager" class="wide" />
+    </div>
+
+    <div class="links">
+        <div class="column">
+            <div class="text">
+                <h2>The Engineer</h2>
+                <p>Final year bachelors in data engineering, at University of Agder with a 4.48 GPA</p>
+            </div>
+            <a href="#projects">Technical work <RightArrowSvg /></a>
+        </div>
+        <div class="column">
+            <div class="text">
+                <h2>The Responsible</h2>
+                <p>President of Grimstad student sports club. Former fundraising team lead at Red Cross.</p>
+            </div>
+            <a href="#leadership">Responsibilities <RightArrowSvg /></a>
+        </div>
+        <div class="column">
+            <div class="text">
+                <h2>The Thinker</h2>
+                <p>Programming since middle school. Recently took up philosophy & photography.</p>
+            </div>
+            <a href="#about">About me <RightArrowSvg /></a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero {
+        container-type: inline-size;
+        margin: 4rem auto 0;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+
+        @media (max-width: 750px) {
+            gap: 0;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 9.5cqw, 128px);
+        }
+
+        .first {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: clamp(2px, 1.5cqw, 10px);
+            opacity: 0;
+            animation: fly-up 601ms var(--anim-spring) forwards,
+                        fade-in 601ms ease-in forwards;
+
+            img {
+                aspect-ratio: 193/115;
+                height: clamp(4rem, 9.5cqw, 115px);
+                width: auto;
+            }
+
+            @media (max-width: 750px) {
+                grid-column-gap: 20px;
+                grid-row-gap: 0;
+                grid-template-columns: auto auto;
+
+                & h1:nth-child(1),
+                & h1:nth-child(3) {
+                    grid-column: 1/2;
+                }
+
+                img {
+                    grid-row: 1/3;
+                    grid-column: 2/3;
+                    width: 100%;
+                    height: auto;
+                    max-height: clamp(83px, 19cqw, 230px);
+                    justify-self: end;
+                }
+            }
+        }
+
+        .second {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            opacity: 0;
+            animation: fly-up 601ms 200ms var(--anim-spring) forwards,
+                        fade-in 601ms 200ms ease-in forwards;
+
+            & h1:nth-child(1) {
+                grid-column: span 2;
+            }
+
+            img {
+                margin-top: 1rem;
+                justify-self: end;
+                grid-column: 1/2;
+            }
+
+            & h1:nth-child(3) {
+                grid-column: 2/3;
+                justify-self: end;
+            }
+
+            @media (max-width: 750px) {
+                gap: 5px;
+                grid-template-columns: 1fr;
+
+                & h1:nth-child(1), img, & h1:nth-child(3) {
+                    grid-column: span 1;
+                    justify-self: end;
+                }
+
+                img {
+                    margin: 0;
+                    grid-row: 3;
+                }
+            }
+        }
+
+        .third {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: clamp(2px, 1.5cqw, 10px);
+            opacity: 0;
+            animation: fly-up 601ms 400ms var(--anim-spring) forwards,
+                        fade-in 601ms 400ms ease-in forwards;
+
+            @media (max-width: 750px) {
+                grid-template-columns: 1fr auto;
+                grid-template-rows: 1fr 1fr;
+
+                h1:nth-child(1) {
+                    grid-column: 2/3;
+                    grid-row: 1/2;
+                }
+
+                h1:nth-child(2) {
+                    grid-column: 2/3;
+                    grid-row: 2/3;
+                    justify-self: end;
+                }
+
+                &.third img {
+                    grid-row: span 2;
+                    align-self: end;
+                    max-height: clamp(4rem, 9.5cqw, 115px);
+                    max-width: 100%;
+                    height: auto;
+                }
+
+            }
+        }
+
+        @media (max-width: 750px) {
+            .second, .third {
+                margin-top: 36px;
+            }
+        }
+
+        .second img, .third img {
+            height: clamp(4rem, 9.5cqw, 115px);
+            width: auto;
+            aspect-ratio: 346/115;
+        }
+
+        .links {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-top: 6rem;
+            margin-bottom: 6rem;
+            opacity: 0;
+            animation: fade-in 800ms 600ms ease-in forwards;
+
+            @media (max-width: 750px) {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .column {
+                color: var(--color-body);
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+
+                @media (max-width: 750px) {
+                    flex-direction: row;
+                }
+
+                h2 {
+                    line-height: 100%;
+                    font-family: var(--font-body);
+                    text-transform: capitalize;
+                    font-style: italic;
+                    font-size: 2rem;
+                    margin-bottom: 4px;
+
+                    @media (max-width: 900px) {
+                        font-size: 1.5rem;
+                    }
+
+                    @media (max-width: 500px) {
+                        font-size: 1.25rem;
+                    }
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 1.25rem;
+                    margin-bottom: 1rem;
+
+                    @media (max-width: 900px) {
+                        font-size: 1rem;
+                    }
+
+                    @media (max-width: 750px) {
+                        display: none;
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                    font-size: 1.25rem;
+                    color: var(--color-title);
+                    outline: 1px solid var(--color-body);
+                    outline-offset: -0.5px;
+                    width: fit-content;
+                    padding: 4px 12px;
+
+                    @media (max-width: 900px) {
+                        font-size: 1rem;
+                    }
+
+                    @media (max-width: 500px) {
+                        font-size: 14px;
+                    }
+
+                    svg {
+                        fill: var(--color-title);
+                    }
+                }
+            }
+        }
+    }
+</style>

@@ -1,69 +1,12 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
 
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="404 | Morten Myrstad" description="Oisann, her gikk noe galt.">
-  <div class="container">
-    <h1>Ooops!</h1>
-    <p>Denne siden finnes visst ikke. Ta gjerne kontakt om du mener noe er feil. Ellers ha en god dag videre 😊</p>
-    <div class="buttons">
-      <a data-cursor-big="" data-cursor-invert="" href="/">Gå til hjemmesiden</a>
-      <a data-cursor-big="" data-cursor-invert="" href="mailto:post@mortenmyrstad.no">Send tilbakemelding</a>
-    </div>
-  </div>
+<BaseLayout
+    title="404 | Morten Myrstad"
+    description="Page Not Found"
+    excludeRobots={true}
+>
+    404
 </BaseLayout>
-
-<style>
-  .container {
-    text-align: center;
-    margin-top: 4rem;
-  }
-
-  h1 {
-    font-size: 5rem;
-    line-height: 1.2;
-    margin: 0;
-  }
-
-  p {
-    font-size: 2rem;
-    line-height: 1.5;
-    max-width: 40ch;
-    margin: 2rem auto;
-  }
-  
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .buttons a{
-    width: fit-content;
-    font-size: 1.25rem;
-    line-height: 100%;
-    padding: 1em 2em;
-    text-decoration: none;
-    color: inherit;
-    border-radius: 100vmax;
-  }
-
-  .buttons :nth-child(1) {
-    background-color: black;
-    color: white;
-  }
-  .buttons :nth-child(2) {
-    color: #000;
-    outline: 2px solid black;
-    outline-offset: -2px;
-  }
-
-  @media screen and (max-width: 800px) {
-    p {
-      font-size: 1.5rem;
-    }
-  }
-</style>

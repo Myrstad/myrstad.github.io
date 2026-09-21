@@ -1,0 +1,235 @@
+---
+import StarSVG from "../../assets/svg/star.svg"
+import RedCrossImg from "../../assets/images/index/experience_redcross.png"
+import GsiImg from "../../assets/images/index/experience_gsi.png"
+import UiaImg from "../../assets/images/index/experience_uia.png"
+
+import { Image } from "astro:assets"
+---
+
+<section class="container" id="leadership">
+    <div class="intro">
+        <div>
+            <StarSVG />
+            <h2>Leadership</h2>
+        </div>
+        <p>
+            Being a leader is taking responsibility. Taking initiative.
+            Being the one who tries—not for himself—but so others can thrive.
+        </p>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <div class="text">
+                <div class="title">
+                    <h3>Fundraiser Team Lead </h3>
+                    <p>Norwegian Red Cross</p>
+                </div>
+                <p>Leading and working alongside a fundraising team, overseeing team sales, communication, and logistics.</p>
+            </div>
+            <div class="img">
+                <Image src={RedCrossImg} alt="Norwegian Red Cross logo"></Image>
+            </div>
+        </div>
+        <div class="card">
+            <div class="text">
+                <div class="title">
+                    <h3>President</h3>
+                    <p>Grimstad Studentidrettslag</p>
+                </div>
+                <p>
+                    Overseeing and managing a sports club of ~500 athletes, 10 different sports and the board. So every student in Grimstad can play sports.
+                </p>
+            </div>
+            <div class="img">
+                <Image src={GsiImg} alt="Grimstad Student Association logo"></Image>
+            </div>
+        </div>
+        <div class="card">
+            <div class="text">
+                <div class="title">
+                    <h3>Deputy Leader</h3>
+                    <p>Buddy Program Grimstad</p>
+                </div>
+                <p>
+                    Managing finances, a high-profile celebrity appearance, while training buddies to welcome new students.
+                </p>
+            </div>
+            <div class="img">
+                <Image src={UiaImg} alt="University of Agder logo"></Image>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    section{
+        padding-top: 77px;
+        padding-bottom: 9rem;
+    }
+
+    .intro {
+        max-width: 427px;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+            place-items: center;
+            margin-bottom: 4px;
+        }
+
+        svg {
+            fill: var(--color-accent);
+            width: 3rem;
+            height: 3rem;
+        }
+
+        h2 {
+            font-size: 4rem;
+            line-height: 90%;
+            letter-spacing: -2%;
+            position: relative;
+            width: fit-content;
+
+            @media (max-width: 750px) {
+                font-size: 3rem;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0 4rem;
+                background: var(--color-accent-dark);
+                z-index: -1;
+                filter: blur(128px);
+            }
+        }
+
+        p {
+            font-size: 1.25rem;
+            color: var(--color-body);
+
+            @media (max-width: 750px) {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .cards {
+        display: flex;
+        gap: 2rem;
+        position: relative;
+        margin-top: 77px;
+
+        @media (max-width: 750px) {
+            flex-direction: column;
+        }
+
+        &::before, &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            background-color: var(--color-accent-dark);
+            left: 0;
+            right: 0;
+            height: 1px;
+        }
+
+        &::before {
+            top: 0;
+        }
+
+        &::after {
+            bottom: 0;
+        }
+
+        .card {
+            flex: 1;
+            position: relative;
+            min-height: 435px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+
+            @media (max-width: 750px) {
+                min-height: 307px;
+            }
+        }
+        
+        >:nth-child(1)::after,
+        >:nth-child(2)::after{
+            position: absolute;
+            content: "";
+            display: block;
+            width: 1px;
+            background-color: var(--color-accent-dark);
+            top: 0;
+            bottom: 0;
+            right: -16px;
+
+            @media (max-width: 750px) {
+                top: unset;
+                left: 0;
+                right: 0;
+                width: unset;
+                height: 1px;
+            }
+        }
+
+        h3 {
+            margin-top: 3rem;
+            font-family: inherit;
+            text-transform: capitalize;
+            font-size: 40px;
+            letter-spacing: -2%;
+            line-height: 100%;
+
+            @media (max-width: 1200px) {
+                font-size: 2rem;
+            }
+        }
+
+        .title p {
+            font-size: 2rem;
+            line-height: 100%;
+            letter-spacing: -2%;
+            font-style: italic;
+            color: var(--color-accent);
+            margin: 0;
+            padding-top: 4px;
+
+            @media (max-width: 1200px) {
+                font-size: 1.25rem;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: 73px;
+            width: auto;
+            margin-top: auto;
+            border-radius: 4px;
+
+            @media (max-width: 750px) {
+                float: right;
+                height: 62px;
+            }
+        }
+
+        .text > p {
+            font-size: 1.25rem;
+            line-height: 120%;
+            color: var(--color-body);
+            padding-bottom: 2rem;
+
+            @media (max-width: 1200px) {
+                font-size: 1rem;
+            }
+        }
+
+    }
+
+</style>

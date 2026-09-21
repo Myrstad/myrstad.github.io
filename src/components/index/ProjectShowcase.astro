@@ -1,0 +1,274 @@
+---
+import { Image } from 'astro:assets';
+import StarSvg from "../../assets/svg/star.svg"
+import ArrowExternalSvg from "../../assets/svg/extern-arrow.svg"
+import ArrowRightSvg from "../../assets/svg/right-arrow.svg"
+
+
+interface Button {
+    text: string;
+    href?: string;
+    external?: boolean;
+}
+
+interface Colors {
+    background: string;
+    accent: string;
+    accentDark: string;
+}
+
+interface ImageData {
+    meta: ImageMetadata,
+    alt: string;
+}
+
+interface Props {
+    title: string;
+    tags: string[];
+    description: string;
+    primary?: Button;
+    secondary?: Button;
+    imageMain: ImageData;
+    imageSmall: ImageData;
+    imageSecondary: ImageData;
+    colors: Colors;
+}
+
+const { title, primary, secondary, colors, imageSmall, imageSecondary, imageMain, tags, description } = Astro.props
+
+---
+
+<section style={{ background: colors.background }}>
+    <div class="container">
+        <div class="column">
+            <h2>{title}</h2>
+            <div class="images">
+                <Image class="small" src={imageSmall.meta} alt={imageSmall.alt ?? ""}/>
+                <Image class="secondary" src={imageSecondary.meta} alt={imageSecondary.alt ?? ""}/>
+            </div>
+        </div>
+        <div class="column">
+            <Image class="main" src={imageMain.meta} alt={imageMain.alt ?? ""}/>
+            <ul class="tags">
+                {tags.map((tag) => (
+                    <li style={{borderColor: colors.accentDark}}>
+                        <div style={{borderColor: colors.accent}}>{tag}</div>
+                    </li>
+                ))}
+            </ul>
+            <p>{description}</p>
+            <div class="buttons">
+                { primary &&
+                    <a href={primary.href} target={primary.external ? "_blank" : "_self"} class="primary">
+                        {primary.text}
+                        {primary.external ? <ArrowExternalSvg/> : <ArrowRightSvg/>}
+                    </a>
+                }
+                { secondary &&
+                    <a href={secondary.href} target={primary.external ? "_blank" : "_self"} class="secondary">
+                        {secondary.text}
+                        {secondary.external ? <ArrowExternalSvg/> : <ArrowRightSvg/>}
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="decor">
+            <StarSvg fill={colors.accentDark}></StarSvg>
+        </div>
+    </div>
+</section>
+
+<style>
+    section .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        min-height: 810px;
+        position: relative;
+
+        @media (max-width: 1200px) {
+            min-height: 700px;
+        }
+
+        @media (max-width: 900px) {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        >:nth-child(1) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .images {
+                display: grid;
+                gap: 2rem;
+                grid-template-columns: repeat(6, 1fr);
+                grid-template-rows: auto auto;
+
+                @media (max-width: 900px) {
+                    grid-template-columns: 2fr 1fr;
+                    grid-template-rows: auto;
+                    margin-top: 22px;
+                    align-items: end;
+                    gap: 1rem;
+                }
+            }
+
+            .images .small {
+                grid-column: 4/7;
+                aspect-ratio: 312/273;
+
+                @media (max-width: 900px) {
+                    grid-column: 2/3;
+                    grid-row: 1;
+                }
+            }
+
+            .images .secondary {
+                grid-column: 1/7;
+                aspect-ratio: 637/364;
+
+                @media (max-width: 900px) {
+                    grid-column: 1/2;
+                }
+            }
+        }
+
+        >:nth-child(2) {
+            color: var(--color-title);
+
+            @media (max-width: 900px) {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+
+                * {
+                    grid-column: span 2;
+                }
+
+                img {
+                    grid-column: 2/3;
+                }
+            }
+
+            p {
+                margin-top: 2rem;
+                font-size: 1.25rem;
+                line-height: 150%;
+
+                @media (max-width: 900px) {
+                    margin-top: 1.5rem;
+                    font-size: 1rem;
+                }
+            }
+
+            .buttons {
+                display: flex;
+                gap: 1.25rem;
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                    margin-left: 4px;
+                }
+            }
+
+            a {
+                display: flex;
+                align-items: center;
+                color: var(--color-title);
+                font-size: 1.25rem;
+                line-height: 120%;
+                padding: 4px 12px;
+                text-decoration: none;
+
+                @media (max-width: 900px) {
+                    font-size: 1rem;
+                }
+
+                &.primary {
+                    background-color: var(--color-body);
+                    color: var(--color-bg);
+
+                    svg {
+                        fill: var(--color-bg);
+                    }
+                }
+
+                &.secondary {
+                    border-bottom: 2px solid var(--color-body);
+                    padding-bottom: 2px;
+                    svg {
+                        fill: var(--color-body);
+                    }
+                }
+            }
+        }
+    }
+
+    .decor {
+        height: 30px;
+        position: absolute;
+        right: 3rem;
+        bottom: 2rem;
+
+        z-index: 0;
+
+        @media (max-width: 900px) {
+            bottom: unset;
+            top: 2.5rem;
+        }
+
+        @media (max-width: 750px) {
+            right: 2rem;
+        }
+
+        @media (max-width: 500px) {
+            right: 1rem;
+        }
+
+    }
+
+    h2 {
+        z-index: 1;
+        font-size: 4rem;
+        line-height: 90%;
+
+        @media (max-width: 750px) {
+            font-size: 3rem;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        color: var(--color-body);
+        list-style: none;
+        padding: 0;
+
+        @media (max-width: 900px) {
+            justify-content: center;
+        }
+
+        > li {
+            padding: 1px;
+            border-width: 1px;
+            border-style: solid;
+
+            > div {
+                padding: 0 8px;
+                border-width: 1px;
+                border-style: solid;
+                line-height: 100%;
+            }
+        }
+    }
+</style>

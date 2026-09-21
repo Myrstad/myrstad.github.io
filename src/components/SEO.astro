@@ -1,0 +1,37 @@
+---
+import DefaultSeoImage from "@assets/images/main_social.png"
+
+interface SeoImage {
+    src: ImageMetadata;
+    alt?: string;
+}
+
+export interface Props {
+    title: string;
+    description: string;
+    image?: SeoImage;
+    excludeRobots?: boolean;
+}
+
+const { title, description, image, excludeRobots = false } = Astro.props as Props
+
+let seoImage;
+if (image?.src) seoImage = new URL(image.src.src, Astro.url);
+else seoImage = new URL(DefaultSeoImage.src, Astro.url);
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+{excludeRobots && <meta name="robots" content="noindex, nofollow" />}
+<meta name="theme-color" content="#1A202C" />
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Morten Myrstad" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={seoImage}>
+<meta property="og:image:url" content={seoImage}>
+<meta property="og:image:secure_url" content={seoImage}>
+
+<!-- Twitter Preview Card -->
+<meta name="twitter:card" content="summary_large_image">

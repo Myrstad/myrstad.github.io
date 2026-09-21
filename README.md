@@ -1,9 +1,21 @@
 # mortenmyrstad.no
 
-### En portefølje for å vise fram kunnskaper og prosjekter
+A personal website, showcasing projects and experience.
 
-Denne nettsiden er lagd for hånd, med kjærlighet, får å vise fram prosjekter og ferdighetene mine. Kontaktinformasjonen min finner du også på siden. Her er URLen [mortenmyrstad.no](https://mortenmyrstad.no/) :D
+A modern and with a somewhat sophisticated esthetic. The website focuses on being clean and minimal in an editorial look.
+With serif fonts, dark blue and light golden accents.
 
-### SOME-bilde
+### Hero
 
-![Sosiale medier "teaser"](/public/images/website-socials.png)
+![preview of hero section of website](docs/website_hero.png "Preview of website")
+
+### Social Media Banner
+
+![Morten Myrstad data engeenir with portrait](./src/assets/images/main_social.png "Social Preview")
+
+---
+### Technical
+
+Made with [Astro](https://astro.build/), [Google Fonts](https://fonts.google.com/) and love.
+
+Copyright © Morten Andreas Myrstad, 2026
