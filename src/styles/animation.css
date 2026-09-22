@@ -23,15 +23,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    @keyframes fade-in {
-        from {
-            opacity: 1;
-        }
-    }
-
-    @keyframes fly-up {
-        from {
-            transform: translateY(0);
-        }
+    * {
+        animation-duration: 0s !important;
+        animation-delay: 0s !important;
     }
 }
